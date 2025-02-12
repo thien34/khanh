@@ -1,8 +1,8 @@
-import type { NextConfig } from 'next';
-import bundeAnalyzer from '@next/bundle-analyzer';
-import createMDX from '@next/mdx';
+import type { NextConfig } from 'next'
+import bundeAnalyzer from '@next/bundle-analyzer'
+import createMDX from '@next/mdx'
 
-const isProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -31,11 +31,11 @@ const nextConfig: NextConfig = {
       permanent: false
     }
   ]
-};
+}
 
 const withBundleAnalyzer = bundeAnalyzer({
   enabled: isProd ? process.env.ANALYZE === 'true' : false
-});
+})
 
 const withMDX = createMDX({
   extension: /\.mdx?$/,
@@ -44,6 +44,6 @@ const withMDX = createMDX({
     rehypePlugins: [],
     providerImportSource: '@mdx-js/react'
   }
-});
+})
 
-export default withBundleAnalyzer(withMDX(nextConfig));
+export default withBundleAnalyzer(withMDX(nextConfig))
