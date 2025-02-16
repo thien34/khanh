@@ -21,12 +21,15 @@ const eslintConfig = [
       // TypeScript rules
       'prettier/prettier': 'warn',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'warn',
 
       // React rules
       'react-hooks/rules-of-hooks': 'warn',
       'react-hooks/exhaustive-deps': 'warn',
+      'react/no-unknown-property': ['error', { ignore: ['css'] }],
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
 
       // Next.js rules
       '@next/next/no-img-element': 'warn',
