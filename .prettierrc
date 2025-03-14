@@ -11,6 +11,9 @@
   "endOfLine": "auto",
   "arrowParens": "avoid",
   "useTabs": false,
-  "proseWrap": "always",
-  "plugins": ["prettier-plugin-tailwindcss"]
+  "proseWrap": "preserve",
+  "quoteProps": "consistent",
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ]
 }
