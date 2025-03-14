@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
-import ogImage from '@public/og.png'
+import ogImage from '@public/images/og.png'
 import { cn } from '@/lib/utils'
 import { getBaseUrl } from '@/lib/url'
 import { GenerateMetadata } from '@/components/client/meta/Metadata'
