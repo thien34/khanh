@@ -64,7 +64,7 @@ const Nav = ({ navs }: Props) => {
           >
             <Link
               href={nav.href}
-              className={cn('nav-link text-bule-600 p-2')}
+              className={cn('nav-link p-2 text-blue-600')}
             >
               {nav.label}
             </Link>
