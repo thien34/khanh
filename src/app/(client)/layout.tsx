@@ -1,3 +1,4 @@
+import Footer from '@/components/client/layouts/footer/Footer'
 import Header from '@/components/client/layouts/navbar/Header'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
@@ -10,7 +11,7 @@ export default function Layout({ children }: Readonly<LayoutProps>) {
     <div>
       <Header />
       {children}
-      {/* <Footer /> */}
+      <Footer />
       <GoogleAnalytics gaId='G-8SGSZPWCCR' />
     </div>
   )

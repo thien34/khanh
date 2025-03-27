@@ -48,3 +48,55 @@
 .nav-link {
   @apply rounded-xl text-[13px] font-bold;
 }
+
+.footer-link {
+  @apply flex h-8 items-center gap-2 text-sm whitespace-nowrap text-slate-900;
+  @apply dark:text-slate-200;
+
+  &__label {
+    @apply rounded-full border px-2 py-1 text-[10px] text-slate-900 uppercase;
+    @apply dark:text-slate-200;
+  }
+
+  &--soon {
+    @apply cursor-not-allowed text-slate-500;
+    @apply dark:text-slate-400;
+  }
+}
+
+.background-grid {
+  @apply relative z-0 bg-slate-100;
+  @apply dark:bg-[#0c1222];
+
+  &::before {
+    @apply absolute inset-0 z-[-1] content-[''];
+    background-image: url('/images/grid.svg');
+    mask-image: linear-gradient(transparent, black, transparent);
+  }
+
+  &--fade-in {
+    @apply bg-transparent bg-gradient-to-t from-slate-100 via-slate-100;
+    @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
+
+    &::before {
+      @apply bg-left-bottom;
+
+      mask-image: linear-gradient(transparent, black, black);
+    }
+  }
+
+  &--fade-out {
+    @apply bg-transparent bg-gradient-to-b from-slate-100 via-slate-100;
+    @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
+
+    &::before {
+      mask-image: linear-gradient(black, black, transparent);
+    }
+  }
+}
+
+.background-image {
+  &--fade-out {
+    mask-image: linear-gradient(black, black, transparent);
+  }
+}

@@ -27,9 +27,9 @@ const Header = () => {
         isScrolled ? 'border-divider-light border-b bg-white/70 backdrop-blur' : ''
       )}
     >
-      <div className='content-wrapper-max'>
+      <div className={cn('content-wrapper-max')}>
         <div className={cn('relative z-50 flex h-16 items-center justify-between px-2 text-sm', 'md:px-4')}>
-          <nav className='flex md:gap-2'>
+          <nav className={cn('flex', 'md:gap-2')}>
             <Logo />
             <Nav navs={navs} />
           </nav>
