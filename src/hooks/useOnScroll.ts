@@ -1,12 +1,13 @@
 'use client'
+
 import { useEffect, useState } from 'react'
 
 export default function useScroll(threshold = 0) {
-  const [isScrolled, setScrolled] = useState<boolean>()
+  const [isScrolled, setIsScrolled] = useState<boolean>(false)
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > threshold)
+      setIsScrolled(window.scrollY > threshold)
     }
     onScroll()
 

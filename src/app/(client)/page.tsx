@@ -1,5 +1,5 @@
-// import IndexContents from '@/components/client/index/index'
+import IndexContents from '@/components/client/index'
 
 export default async function Home() {
-  return <main>{/* <IndexContents /> */}</main>
+  return <main>{<IndexContents />}</main>
 }
