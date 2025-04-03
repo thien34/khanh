@@ -271,3 +271,86 @@ export function YoutubeIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
     </svg>
   )
 }
+
+export function PinIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 16 16'
+      stroke='currentColor'
+      fill='currentColor'
+      strokeWidth='0'
+      {...props}
+    >
+      <path d='M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z' />
+    </svg>
+  )
+}
+
+export function InsightIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 24 24'
+      strokeWidth='2'
+      strokeLinecap='round'
+      strokeLinejoin='round'
+      stroke='currentColor'
+      fill='none'
+      {...props}
+    >
+      <line
+        x1='18'
+        y1='20'
+        x2='18'
+        y2='10'
+      />
+      <line
+        x1='12'
+        y1='20'
+        x2='12'
+        y2='4'
+      />
+      <line
+        x1='6'
+        y1='20'
+        x2='6'
+        y2='14'
+      />
+    </svg>
+  )
+}
+
+export function CheckCircleIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z'
+        clipRule='evenodd'
+      />
+    </svg>
+  )
+}
+
+export function XCircleIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.28 7.22a.75.75 0 00-1.06 1.06L8.94 10l-1.72 1.72a.75.75 0 101.06 1.06L10 11.06l1.72 1.72a.75.75 0 101.06-1.06L11.06 10l1.72-1.72a.75.75 0 00-1.06-1.06L10 8.94 8.28 7.22z'
+        clipRule='evenodd'
+      />
+    </svg>
+  )
+}

@@ -14,10 +14,11 @@ const animation = {
 interface PageHeaderProps {
   title: string
   description: string
+  caption?: string
   headerImage?: React.ReactNode
 }
 
-function PageHeader({ title, description, headerImage = null }: Readonly<PageHeaderProps>) {
+function PageHeader({ title, description, caption = '', headerImage = null }: Readonly<PageHeaderProps>) {
   return (
     <header
       id='page-header'
@@ -41,6 +42,22 @@ function PageHeader({ title, description, headerImage = null }: Readonly<PageHea
         </div>
       )}
       <div className={cn('content-wrapper')}>
+        {caption && (
+          <motion.div
+            initial={animation.hide}
+            animate={animation.show}
+            transition={{ delay: 0 }}
+          >
+            <span
+              className={cn(
+                'mb-1 block text-lg leading-none font-extrabold text-purple-600 capitalize',
+                'md:mb-0 md:text-2xl'
+              )}
+            >
+              {caption}
+            </span>
+          </motion.div>
+        )}
         <motion.div
           initial={animation.hide}
           animate={animation.show}

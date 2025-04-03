@@ -8,6 +8,7 @@ export interface Navigation {
 export type TBaseFrontMatter = {
   title: string
   description: string
+  caption?: string
 }
 
 export type TPageFrontMatter = TBaseFrontMatter
@@ -16,9 +17,9 @@ export type TPageOgImage = Partial<Pick<TPageFrontMatter, 'title' | 'description
 
 export type TPostFrontMatter = TBaseFrontMatter & {
   date: string
-  lang: 'id' | 'en'
-  tags: Array<string>
-  category: string
+  lang: string
+  tags?: Array<string>
+  category?: string
 }
 
 export type TContentMeta = {
@@ -27,3 +28,11 @@ export type TContentMeta = {
     shares: number
   }
 }
+
+export type TTableOfContentsItem = {
+  title: string
+  depth: number
+  slug: string
+}
+
+export type TTableOfContents = Array<TTableOfContentsItem>
