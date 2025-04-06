@@ -8,6 +8,10 @@ export const revalidate = 60
 export default async function Blog() {
   const { data: posts, error } = await postService.getPublishedPosts()
 
+  if (error) {
+    return <div>Error: {error.message}</div>
+  }
+
   return (
     <Page
       frontMatter={{

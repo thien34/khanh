@@ -64,7 +64,7 @@ export class PostService {
     // Add validation logic here (using Zod, etc.) before calling repository
     // Add logic like generating slug if not provided
     // Check permissions
-    console.log('Creating post:', postData)
+    console.warn('Creating post:', postData)
     // Ideally, use PostInsert type for postData
     return this.repository.create(postData)
   }
@@ -84,7 +84,7 @@ export class PostService {
     }
     // Add validation logic
     // Check permissions (e.g., user owns the post or is admin)
-    console.log(`Updating post ${id}:`, postData)
+    console.warn(`Updating post ${id}:`, postData)
     // Ideally, use PostUpdate type for postData
     return this.repository.update(id, postData)
   }
@@ -99,7 +99,7 @@ export class PostService {
       }
     }
     // Check permissions
-    console.log(`Deleting post ${id}`)
+    console.warn(`Deleting post ${id}`)
     return this.repository.delete(id)
   }
 

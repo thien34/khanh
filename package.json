@@ -15,6 +15,7 @@
     "clean": "rm -rf .next out node_modules pnpm-lock.yaml"
   },
   "dependencies": {
+    "@mdx-js/react": "3.1.0",
     "@radix-ui/react-dropdown-menu": "2.1.6",
     "@radix-ui/react-slot": "1.1.2",
     "@supabase/ssr": "0.6.1",
