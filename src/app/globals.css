@@ -52,86 +52,83 @@
 .footer-link {
   @apply flex h-8 items-center gap-2 text-sm whitespace-nowrap text-slate-900;
   @apply dark:text-slate-200;
+}
 
-  &__label {
-    @apply rounded-full border px-2 py-1 text-[10px] text-slate-900 uppercase;
-    @apply dark:text-slate-200;
-  }
+.footer-link__label {
+  @apply rounded-full border px-2 py-1 text-[10px] text-slate-900 uppercase;
+  @apply dark:text-slate-200;
+}
 
-  &--soon {
-    @apply cursor-not-allowed text-slate-500;
-    @apply dark:text-slate-400;
-  }
+.footer-link--soon {
+  @apply cursor-not-allowed text-slate-500;
+  @apply dark:text-slate-400;
 }
 
 .background-grid {
   @apply relative z-0 bg-slate-100;
   @apply dark:bg-[#0c1222];
-
-  &::before {
-    @apply absolute inset-0 z-[-1] content-[''];
-    background-image: url('/images/grid.svg');
-    mask-image: linear-gradient(transparent, black, transparent);
-  }
-
-  &--fade-in {
-    @apply bg-transparent bg-gradient-to-t from-slate-100 via-slate-100;
-    @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
-
-    &::before {
-      @apply bg-left-bottom;
-
-      mask-image: linear-gradient(transparent, black, black);
-    }
-  }
-
-  &--fade-out {
-    @apply bg-transparent bg-gradient-to-b from-slate-100 via-slate-100;
-    @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
-
-    &::before {
-      mask-image: linear-gradient(black, black, transparent);
-    }
-  }
 }
 
-.background-image {
-  &--fade-out {
-    mask-image: linear-gradient(black, black, transparent);
-  }
+.background-grid::before {
+  @apply absolute inset-0 z-[-1] content-[''];
+  background-image: url('/images/grid.svg');
+  mask-image: linear-gradient(transparent, black, transparent);
+}
+
+.background-grid--fade-in {
+  @apply bg-transparent bg-gradient-to-t from-slate-100 via-slate-100;
+  @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
+}
+
+.background-grid--fade-in::before {
+  @apply bg-left-bottom;
+  mask-image: linear-gradient(transparent, black, black);
+}
+
+.background-grid--fade-out {
+  @apply bg-transparent bg-gradient-to-b from-slate-100 via-slate-100;
+  @apply dark:bg-transparent dark:from-[#0c1222] dark:via-[#0c1222];
+}
+
+.background-grid--fade-out::before {
+  mask-image: linear-gradient(black, black, transparent);
+}
+
+.background-image--fade-out {
+  mask-image: linear-gradient(black, black, transparent);
 }
 
 .button {
   @apply inline-flex h-10 items-center justify-center gap-1.5 rounded-md border border-transparent px-4 text-center text-sm font-bold transition duration-150;
   @apply md:h-12 md:rounded-xl md:px-6;
+}
 
-  &--solid {
-    @apply bg-purple-600 text-white;
-    @apply hover:bg-purple-700;
-    @apply dark:bg-purple-600 dark:hover:bg-purple-500;
-  }
+.button--solid {
+  @apply bg-purple-600 text-white;
+  @apply hover:bg-purple-700;
+  @apply dark:bg-purple-600 dark:hover:bg-purple-500;
+}
 
-  &--ghost {
-    @apply text-slate-600;
-    @apply hover:text-slate-700;
-    @apply dark:text-slate-400 dark:hover:text-slate-300;
-  }
+.button--ghost {
+  @apply text-slate-600;
+  @apply hover:text-slate-700;
+  @apply dark:text-slate-400 dark:hover:text-slate-300;
+}
 
-  &--outline {
-    @apply hover:bg-slate-200/40 dark:hover:bg-slate-600/10;
-  }
+.button--outline {
+  @apply hover:bg-slate-200/40 dark:hover:bg-slate-600/10;
+}
 
-  &--soft {
-    @apply rounded-full bg-purple-600/[0.08] px-5 font-bold text-purple-600;
-    @apply dark:bg-purple-400/10 dark:font-semibold dark:text-purple-400;
-  }
+.button--soft {
+  @apply rounded-full bg-purple-600/[0.08] px-5 font-bold text-purple-600;
+  @apply dark:bg-purple-400/10 dark:font-semibold dark:text-purple-400;
+}
 
-  &--underline {
-    @apply relative;
+.button--underline {
+  @apply relative;
+}
 
-    &::after {
-      @apply absolute right-2 bottom-1 left-2 border-b-2 border-dotted border-slate-600/50 content-[''];
-      @apply dark:border-slate-400/50;
-    }
-  }
+.button--underline::after {
+  @apply absolute right-2 bottom-1 left-2 border-b-2 border-dotted border-slate-600/50 content-[''];
+  @apply dark:border-slate-400/50;
 }
