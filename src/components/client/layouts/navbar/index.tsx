@@ -13,8 +13,7 @@ const navs: Navigation[] = [
   { id: 3, label: 'T.I.L', href: '/project', type: 0 },
   { id: 4, label: 'Skills & Tools', href: '/work/skills-and-tools', type: 1 },
   { id: 5, label: 'Experience', href: '/work/experience', type: 1 },
-  { id: 6, label: 'Studio', href: '/work/studio', type: 1 },
-  { id: 7, label: 'Contact', href: '/work/contact', type: 1 }
+  { id: 6, label: 'Contact', href: '/work/contact', type: 1 }
 ]
 
 const Header = () => {
