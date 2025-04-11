@@ -1,5 +1,5 @@
-import Footer from '@/components/client/layouts/footer/Footer'
-import Header from '@/components/client/layouts/navbar/Header'
+import Footer from '@/components/client/layouts/footer'
+import Header from '@/components/client/layouts/navbar'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 type LayoutProps = {
