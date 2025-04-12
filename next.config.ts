@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
     inlineCss: isProd,
     mdxRs: true
   },
+  turbopack: {},
   typescript: {
     ignoreBuildErrors: false
   },
