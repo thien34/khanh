@@ -6,7 +6,10 @@ import { cn } from '@/lib/utils'
 
 function Header() {
   return (
-    <header className={cn('background-grid background-grid--fade-out pt-36 pb-20', 'lg:pt-52 lg:pb-28')}>
+    <header
+      id='page-header'
+      className={cn('background-grid background-grid--fade-out pt-36 pb-20', 'lg:pt-52 lg:pb-28')}
+    >
       <div className={cn('content-wrapper')}>
         <div className={cn('relative')}>
           <div className={cn('relative z-10')}>

@@ -50,7 +50,7 @@ function PageHeader({ title, description, caption = '', headerImage = null }: Re
           >
             <span
               className={cn(
-                'mb-1 block text-lg leading-none font-extrabold text-purple-600 capitalize',
+                'mb-1 block text-lg leading-none font-extrabold text-blue-600 capitalize',
                 'md:mb-0 md:text-2xl'
               )}
             >

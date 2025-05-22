@@ -1,4 +1,4 @@
-import Page from '@/components/client/layouts/Page'
+import Page from '@/components/client/layouts/content-layout/Page'
 import ProjectsContents from '@/components/client/projects'
 import HeaderImage from '@/components/client/projects/HeaderImage'
 

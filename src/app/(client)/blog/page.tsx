@@ -1,6 +1,6 @@
 import BlogContents from '@/components/client/blog'
 import HeaderImage from '@/components/client/blog/HeaderImage'
-import Page from '@/components/client/layouts/Page'
+import Page from '@/components/client/layouts/content-layout/Page'
 import { postService } from '@/services/PostService'
 
 export const revalidate = 60
