@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils'
 const navs: Navigation[] = [
   { id: 1, label: 'Projects', href: '/projects', type: 0 },
   { id: 2, label: 'Blog', href: '/blog', type: 0 },
-  { id: 3, label: 'T.I.L', href: '/project', type: 0 },
+  { id: 3, label: 'T.I.L', href: '/til', type: 0 },
   { id: 4, label: 'Skills & Tools', href: '/work/skills-and-tools', type: 1 },
   { id: 5, label: 'Experience', href: '/work/experience', type: 1 },
   { id: 6, label: 'Contact', href: '/work/contact', type: 1 }
@@ -23,7 +23,7 @@ const Header = () => {
     <header
       className={cn(
         'fixed top-0 right-0 left-0 z-[1000] bg-transparent transition-colors duration-300',
-        isScrolled ? 'border-divider-light border-b bg-white/70 backdrop-blur' : ''
+        isScrolled ? 'border-b bg-white/70 backdrop-blur' : ''
       )}
     >
       <div className={cn('content-wrapper-max')}>

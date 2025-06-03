@@ -21,7 +21,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         <span className='absolute top-[7px] -left-7 size-3 rounded-sm bg-slate-500 md:-left-9 dark:bg-slate-400' />
         <span className='ml-2'>{children}</span>
       </li>
-    )
+    ),
 
     // code: ({ children }) => (
     //   <code className="font-medium text-slate-700 before:mr-[-2px] before:content-['`'] after:ml-[-2px] after:content-['`'] dark:text-slate-300">
@@ -29,11 +29,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     //   </code>
     // ),
 
-    // blockquote: ({ children }) => (
-    //   <blockquote className='relative my-6 py-1 pl-6 text-slate-600 dark:text-slate-400'>
-    //     <span className='absolute top-0 bottom-0 left-0 w-1 rounded-full bg-slate-200 dark:bg-slate-800' />
-    //     {children}
-    //   </blockquote>
-    // )
+    blockquote: ({ children }) => (
+      <blockquote className='relative my-6 py-1 pl-6 text-slate-600 dark:text-slate-400'>
+        <span className='absolute top-0 bottom-0 left-0 w-1 rounded-full bg-slate-200 dark:bg-slate-800' />
+        {children}
+      </blockquote>
+    )
   }
 }

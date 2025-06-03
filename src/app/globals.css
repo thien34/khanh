@@ -250,3 +250,37 @@
 .mdx-heading--h3 .mdx-heading__anchor {
   @apply h-7 w-7;
 }
+
+.mdx-table {
+  @apply mt-6 mb-8 w-full overflow-x-auto rounded-lg border text-sm;
+
+  table {
+    @apply w-full;
+
+    thead {
+      tr {
+        @apply border-b;
+
+        th {
+          @apply p-2 px-4 text-left;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        td {
+          @apply p-2 px-4 align-top;
+        }
+      }
+    }
+
+    th,
+    td {
+      &:first-child {
+        @apply sticky left-0 z-10 w-[120px] min-w-[120px] rounded-l-lg bg-white sm:w-[200px] sm:min-w-[200px];
+        @apply dark:bg-slate-900;
+      }
+    }
+  }
+}

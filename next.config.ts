@@ -8,7 +8,9 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
     inlineCss: isProd,
-    mdxRs: true
+    mdxRs: {
+      mdxType: 'gfm'
+    }
   },
   turbopack: {},
   typescript: {
@@ -42,8 +44,7 @@ const withMDX = createMDX({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [],
-    rehypePlugins: [],
-    providerImportSource: '@mdx-js/react'
+    rehypePlugins: []
   }
 })
 
