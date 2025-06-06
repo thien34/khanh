@@ -28,7 +28,7 @@ function PageHeader({ title, description, caption = '', headerImage = null }: Re
       )}
     >
       {headerImage && (
-        <div className={cn('content-wrapper absolute inset-0 overflow-hidden')}>
+        <div className={cn('content-wrapper pointer-events-none absolute inset-0 overflow-hidden')}>
           <div
             className={cn(
               'background-image--fade-out pointer-events-none absolute inset-0 hidden select-none',
