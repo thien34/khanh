@@ -42,12 +42,8 @@ const Footer = () => {
                     href: '/docs'
                   },
                   {
-                    title: 'Personal Blog',
-                    href: '/blog'
-                  },
-                  {
-                    title: 'T.I.L',
-                    href: '/today-i-learned',
+                    title: 'Blog',
+                    href: '/blog',
                     label: 'new'
                   }
                 ]}
@@ -58,16 +54,19 @@ const Footer = () => {
                   {
                     title: 'Design Concept',
                     href: '#',
-                    isInternal: false
+                    isInternal: false,
+                    label: 'soon'
                   },
                   {
                     title: 'Source Code',
                     href: '##',
-                    isInternal: false
+                    isInternal: false,
+                    label: 'soon'
                   },
                   {
                     title: 'Credits',
-                    href: '/credits'
+                    href: '/credits',
+                    label: 'soon'
                   }
                 ]}
               />

@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils'
 const navs: Navigation[] = [
   { id: 1, label: 'Projects', href: '/projects', type: 0 },
   { id: 2, label: 'Blog', href: '/blog', type: 0 },
-  { id: 3, label: 'T.I.L', href: '/til', type: 0 },
   { id: 4, label: 'Skills & Tools', href: '/work/skills-and-tools', type: 1 },
   { id: 5, label: 'Experience', href: '/work/experience', type: 1 },
   { id: 6, label: 'Contact', href: '/work/contact', type: 1 }
