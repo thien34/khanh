@@ -1,9 +1,19 @@
 import { clsx, type ClassValue } from 'clsx'
-import { isValid, parseISO, format, differenceInDays } from 'date-fns'
+import { isValid, parseISO, format, differenceInDays, parse } from 'date-fns'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export const formatDate = (date: string) => {
+  const parsed = parse(date, 'yyyy-MM-dd', new Date())
+
+  if (isValid(parsed)) {
+    return format(parsed, 'MMMM d, yyyy')
+  }
+
+  return date
 }
 
 export const formatDateRelative = (date: string) => {

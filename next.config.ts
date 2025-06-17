@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 import bundeAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
+import rehypePrism from 'rehype-prism-plus'
+import remarkGfm from 'remark-gfm'
+import rehypeMdxProps from 'rehype-mdx-code-props'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -8,9 +11,7 @@ const nextConfig: NextConfig = {
   experimental: {
     reactCompiler: true,
     inlineCss: isProd,
-    mdxRs: {
-      mdxType: 'gfm'
-    }
+    mdxRs: false
   },
   turbopack: {},
   typescript: {
@@ -41,10 +42,10 @@ const withBundleAnalyzer = bundeAnalyzer({
 })
 
 const withMDX = createMDX({
-  extension: /\.mdx?$/,
+  extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: []
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypePrism, rehypeMdxProps]
   }
 })
 
