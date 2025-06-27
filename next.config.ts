@@ -3,7 +3,7 @@ import bundeAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
-import rehypeMdxProps from 'rehype-mdx-code-props'
+import withCodeAttributes from './src/helpers/withCodeAttributes'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -42,10 +42,10 @@ const withBundleAnalyzer = bundeAnalyzer({
 })
 
 const withMDX = createMDX({
-  extension: /\.(md|mdx)$/,
+  extension: /\.mdx$/,
   options: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypePrism, rehypeMdxProps]
+    rehypePlugins: [withCodeAttributes, rehypePrism]
   }
 })
 

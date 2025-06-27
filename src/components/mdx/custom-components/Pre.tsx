@@ -15,27 +15,32 @@ const countCodeLines = (children: ReactNode): number => {
 }
 
 export type PreProps = DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement> & {
-  title?: string
-  selected?: string
-  copy?: string
-  footer?: string
+  'data-title'?: string
+  'data-selected'?: string
+  'data-copy'?: string
+  'data-footer'?: string
 }
 
-export function Pre({ children, title = '', selected = '', copy = 'true', footer = 'true' }: PreProps) {
+export function Pre({ children, ...props }: PreProps) {
+  const dataTitle = props['data-title']
+  const dataSelected = props['data-selected']
+  const dataCopy = props['data-copy']
+  const dataFooter = props['data-footer']
+
   const lines = countCodeLines(children)
   const language = extractLanguage(children)
 
-  const { lang } = formatLang(language, title)
-  const withCopy = parseBoolean(copy)
-  const withFooter = parseBoolean(footer) ? lines > 0 : false
+  const { lang } = formatLang(language, dataTitle)
+  const withCopy = parseBoolean(dataCopy ?? 'true')
+  const withFooter = parseBoolean(dataFooter ?? 'true') ? lines > 0 : false
 
   return (
     <Code
-      title={title}
+      title={dataTitle}
       withFooter={withFooter}
       withCopyButton={withCopy}
       lines={lines}
-      selected={selected}
+      selected={dataSelected}
       language={lang}
     >
       {children}
