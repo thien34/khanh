@@ -152,7 +152,7 @@
   @apply translate-x-0 opacity-100;
 }
 
-/* .mdx-code-group--tab {
+.mdx-code-group--tab {
   @apply relative mt-4 mb-8 overflow-hidden rounded-xl border;
 
   .mdx-code-group__header-wrapper {
@@ -165,6 +165,8 @@
 
   .mdx-code-group__tab {
     @apply flex h-full items-center justify-center gap-2 border-r px-4 text-xs font-bold;
+    @apply data-[state=active]:bg-purple-600/[0.08] data-[state=active]:text-purple-600;
+    @apply dark:data-[state=active]:bg-purple-400/10 dark:data-[state=active]:text-purple-400;
 
     :first-child {
       @apply rounded-l-lg;
@@ -190,7 +192,7 @@
       @apply static border-none;
     }
   }
-} */
+}
 
 .mdx-code-group--files {
   @apply mt-4 mb-8 overflow-hidden rounded-xl border bg-[var(--code-bg)] text-slate-400;
@@ -303,6 +305,79 @@
       &:first-child {
         @apply sticky left-0 z-10 w-[120px] min-w-[120px] rounded-l-lg bg-white sm:w-[200px] sm:min-w-[200px];
         @apply dark:bg-slate-900;
+      }
+    }
+  }
+}
+
+.mdx-callout {
+  @apply my-6 flex flex-col gap-2 rounded-xl bg-purple-400/10 p-4;
+  @apply md:gap-4 md:p-6;
+
+  blockquote {
+    @apply my-0;
+
+    &::before {
+      @apply bg-purple-300;
+      @apply dark:bg-purple-400/30;
+    }
+  }
+
+  .mdx-callout__header {
+    @apply flex items-center gap-2 text-lg font-bold text-purple-600;
+    @apply md:gap-3 md:text-xl;
+    @apply dark:text-purple-400;
+
+    svg {
+      @apply h-5 w-5;
+      @apply md:h-6 md:w-6;
+    }
+  }
+
+  .mdx-callout--info {
+    @apply bg-blue-400/10;
+
+    .mdx-callout__header {
+      @apply text-blue-600;
+      @apply dark:text-blue-400;
+    }
+
+    blockquote {
+      &::before {
+        @apply bg-blue-300;
+        @apply dark:bg-blue-400/30;
+      }
+    }
+  }
+
+  .mdx-callout--warning {
+    @apply bg-amber-400/10;
+
+    .mdx-callout__header {
+      @apply text-amber-700;
+      @apply dark:text-amber-400;
+    }
+
+    blockquote {
+      &::before {
+        @apply bg-amber-300;
+        @apply dark:bg-amber-400/30;
+      }
+    }
+  }
+
+  .mdx-callout--danger {
+    @apply bg-red-400/10;
+
+    .mdx-callout__header {
+      @apply text-red-700;
+      @apply dark:text-red-400;
+    }
+
+    blockquote {
+      &::before {
+        @apply bg-red-300;
+        @apply dark:bg-red-400/30;
       }
     }
   }
