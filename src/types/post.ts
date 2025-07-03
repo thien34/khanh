@@ -10,3 +10,14 @@ export interface Post {
   lang: string
   description: string
 }
+
+export interface Posts {
+  id: string
+  type: string
+  title: string
+  slug: string
+  createdAt: Date
+  updatedAt: Date
+  lang: string
+  description: string
+}

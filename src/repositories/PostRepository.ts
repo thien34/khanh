@@ -1,5 +1,6 @@
-import { createClient } from '@/lib/supabase/server'
-import { Post } from '@/types/post'
+import { createClient } from '@/lib/supabase/client'
+import { createClient as createServerClient } from '@/lib/supabase/server'
+import { Post, Posts } from '@/types/post'
 import { PostgrestError } from '@supabase/supabase-js'
 
 interface FindAllPostsOptions {
@@ -9,11 +10,13 @@ interface FindAllPostsOptions {
 }
 
 export class PostRepository {
-  async findAllPublished(options: FindAllPostsOptions = {}): Promise<{ data: Post[]; error: PostgrestError | null }> {
-    const supabase = await createClient() // Use the server client
+  async findPostsPublished(
+    options: FindAllPostsOptions = {}
+  ): Promise<{ data: Posts[]; error: PostgrestError | null }> {
+    const supabase = createClient()
     let query = supabase
       .from('content_meta')
-      .select('*')
+      .select('id, type, title, slug, created_at, updated_at, lang, description')
       .eq('published', true)
       .order('created_at', { ascending: false })
 
@@ -35,10 +38,8 @@ export class PostRepository {
           type: item.type,
           title: item.title,
           slug: item.slug,
-          published: item.published,
           createdAt: new Date(item.created_at),
           updatedAt: new Date(item.updated_at),
-          content: item.content,
           lang: item.lang,
           description: item.description
         }))
@@ -48,7 +49,7 @@ export class PostRepository {
   }
 
   async findBySlug(slug: string): Promise<{ data: Post | null; error: PostgrestError | null }> {
-    const supabase = await createClient()
+    const supabase = await createServerClient()
     const { data, error } = await supabase
       .from('content_meta')
       .select('*')
@@ -62,7 +63,7 @@ export class PostRepository {
   // Method to get a post by ID (might be used in admin, could be published or draft)
   async findById(id: string | number): Promise<{ data: Post | null; error: PostgrestError | null }> {
     // Decide if admin client is needed here based on RLS policies
-    const supabase = await createClient() // Or createSupabaseAdminClient()
+    const supabase = createClient() // Or createSupabaseAdminClient()
     const { data, error } = await supabase
       .from('content_meta')
       .select('*') // Select all
@@ -75,7 +76,7 @@ export class PostRepository {
   // Method to get all posts (including drafts, for admin)
   async findAllAdmin(options: FindAllPostsOptions = {}): Promise<{ data: Post[]; error: PostgrestError | null }> {
     // Might require admin client depending on RLSD
-    const supabase = await createClient() // Or createSupabaseAdminClient()
+    const supabase = createClient() // Or createSupabaseAdminClient()
     let query = supabase
       .from('content_meta')
       .select('*') // Select all
@@ -97,7 +98,7 @@ export class PostRepository {
 
   // Method to create a new post
   async create(postData: Post): Promise<{ data: Post | null; error: PostgrestError | null }> {
-    const supabase = await createClient() // Or createSupabaseAdminClient()
+    const supabase = createClient() // Or createSupabaseAdminClient()
     const { data, error } = await supabase
       .from('content_meta')
       .insert(postData) // Insert the post data
@@ -112,7 +113,7 @@ export class PostRepository {
     id: string | number,
     postData: Partial<Post>
   ): Promise<{ data: Post | null; error: PostgrestError | null }> {
-    const supabase = await createClient() // Or createSupabaseAdminClient()
+    const supabase = createClient() // Or createSupabaseAdminClient()
     const { data, error } = await supabase
       .from('content_meta')
       .update(postData) // Update the post data
@@ -125,7 +126,7 @@ export class PostRepository {
 
   // Method to delete a post
   async delete(id: string | number): Promise<{ error: PostgrestError | null }> {
-    const supabase = await createClient() // Or createSupabaseAdminClient()
+    const supabase = createClient() // Or createSupabaseAdminClient()
     const { error } = await supabase
       .from('content_meta')
       .delete() // Delete the post
@@ -136,7 +137,7 @@ export class PostRepository {
 
   // Method to get all unique post slugs (for getStaticPaths)
   async findAllSlugs(): Promise<{ data: { slug: string }[]; error: PostgrestError | null }> {
-    const supabase = await createClient()
+    const supabase = createClient()
     const { data, error } = await supabase
       .from('content_meta')
       .select('slug') // Select the slug

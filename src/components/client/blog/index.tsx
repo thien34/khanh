@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import PostPreview from './PostPreview'
-import { Post } from '@/types/post'
+import { Posts } from '@/types/post'
 
 const PINNED_POST = 'the-2023-retrospective'
 
@@ -12,7 +12,7 @@ type TPostPreview = {
   description: string
 }
 type BlogContentsProps = {
-  posts: Post[]
+  posts: Posts[]
 }
 
 function BlogContents({ posts }: Readonly<BlogContentsProps>) {

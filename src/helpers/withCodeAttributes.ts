@@ -1,7 +1,7 @@
 import { visit } from 'unist-util-visit'
 
 const VALID_PROPS = ['title', 'selected', 'copy', 'footer']
- 
+
 export default function rehypeCustomCodeProps() {
   return (tree: any) => {
     visit(tree, 'element', node => {

@@ -1,5 +1,5 @@
 import { postRepository, PostRepository } from '@/repositories/PostRepository'
-import { Post } from '@/types/post'
+import { Post, Posts } from '@/types/post'
 import { PostgrestError } from '@supabase/supabase-js'
 
 interface FindAllPostsOptions {
@@ -13,9 +13,9 @@ export class PostService {
   /**
    * Gets all published posts, suitable for public blog listing.
    */
-  async getPublishedPosts(options: FindAllPostsOptions = {}): Promise<{ data: Post[]; error: PostgrestError | null }> {
+  async getPublishedPosts(options: FindAllPostsOptions = {}): Promise<{ data: Posts[]; error: PostgrestError | null }> {
     // Future logic could be added here (e.g., caching)
-    return this.repository.findAllPublished(options)
+    return this.repository.findPostsPublished(options)
   }
 
   /**
