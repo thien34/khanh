@@ -34,21 +34,16 @@ export class PostRepository {
     // Transform snake_case to camelCase
     const transformedData = data
       ? data.map(item => ({
-          id: item.id,
-          type: item.type,
-          title: item.title,
-          slug: item.slug,
+          ...item,
           createdAt: new Date(item.created_at),
-          updatedAt: new Date(item.updated_at),
-          lang: item.lang,
-          description: item.description
+          updatedAt: new Date(item.updated_at)
         }))
       : []
 
     return { data: transformedData, error }
   }
 
-  async findBySlug(slug: string): Promise<{ data: Post | null; error: PostgrestError | null }> {
+  async findBySlug(slug: string): Promise<{ data: Post; error: PostgrestError | null }> {
     const supabase = await createServerClient()
     const { data, error } = await supabase
       .from('content_meta')
@@ -57,7 +52,14 @@ export class PostRepository {
       .eq('published', true)
       .maybeSingle() // Returns one row or null, doesn't error if not found
 
-    return { data, error }
+    // Transform snake_case to camelCase
+    const transformedData = {
+      ...data,
+      createdAt: new Date(data.created_at),
+      updatedAt: new Date(data.updated_at)
+    }
+
+    return { data: transformedData, error }
   }
 
   // Method to get a post by ID (might be used in admin, could be published or draft)

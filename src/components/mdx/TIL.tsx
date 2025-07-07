@@ -135,7 +135,7 @@ export function Items({ date, children }: PropsWithChildren<ItemsProps>) {
   )
 }
 
-export default {
+const TIL = {
   Items,
   Item,
   ItemTags,
@@ -144,3 +144,5 @@ export default {
   Do,
   Dont
 }
+
+export default TIL

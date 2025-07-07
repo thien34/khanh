@@ -35,4 +35,4 @@ export type TTableOfContentsItem = {
   slug: string
 }
 
-export type TTableOfContents = Array<TTableOfContentsItem>
+export type TTableOfContents = TTableOfContentsItem[]

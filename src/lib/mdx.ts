@@ -1,3 +1,4 @@
+import { TTableOfContents } from '@/types'
 import fs from 'fs'
 import path from 'path'
 
@@ -17,14 +18,12 @@ type MdxCacheValue = {
 const mdxCache = new Map<string, MdxCacheValue>()
 
 // Helper function to extract table of contents from MDX content
-function extractTableOfContents(filePath: string) {
-  const content = fs.readFileSync(filePath, 'utf8')
-
+export function extractTableOfContents(content: string): TTableOfContents {
   // Extract headings with regex
   const headingRegex = /^(#{2,3})\s+(.+?)$/gm
   const matches = [...content.matchAll(headingRegex)]
 
-  const toc = matches.map(match => {
+  return matches.map(match => {
     const level = match[1].length - 1 // Adjust level (h2 -> level 1, h3 -> level 2)
     const text = match[2]
     const slug = text
@@ -35,11 +34,9 @@ function extractTableOfContents(filePath: string) {
     return {
       title: text,
       depth: level, // Changed from "level" to "depth" to match TTableOfContentsItem
-      slug: slug // Changed from "url" to "slug" to match TTableOfContentsItem
+      slug // Changed from "url" to "slug" to match TTableOfContentsItem
     }
   })
-
-  return toc
 }
 
 export async function getMdxBySlug(slug: string, folder = 'work'): Promise<MdxCacheValue> {
@@ -48,7 +45,8 @@ export async function getMdxBySlug(slug: string, folder = 'work'): Promise<MdxCa
 
   try {
     const filePath = path.join(process.cwd(), `src/contents/${folder}/${slug}.mdx`)
-    const tableOfContents = extractTableOfContents(filePath)
+    const content = fs.readFileSync(filePath, 'utf8')
+    const tableOfContents = extractTableOfContents(content)
 
     const mod = await import(`@/contents/${folder}/${slug}.mdx`)
     const value = {
