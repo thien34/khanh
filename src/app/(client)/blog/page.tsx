@@ -1,16 +1,12 @@
 import BlogContents from '@/components/client/blog'
 import HeaderImage from '@/components/client/blog/HeaderImage'
 import Page from '@/components/client/layouts/content-layout/Page'
-import { postService } from '@/services/PostService'
+import { postService } from '@/servers/services/PostService'
 
 export const revalidate = 60
 
 export default async function Blog() {
-  const { data: posts, error } = await postService.getPublishedPosts()
-
-  if (error) {
-    return <div>Error: {error.message}</div>
-  }
+  const posts = await postService.getPublishedPosts()
 
   return (
     <Page

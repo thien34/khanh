@@ -1,7 +1,7 @@
 import { GenerateMetadata } from '@/components/client/meta/Metadata'
 import { getBaseUrl } from '@/lib/url'
 import { Metadata } from 'next'
-import { postService } from '@/services/PostService'
+import { postService } from '@/servers/services/PostService'
 
 type LayoutProps = {
   children: React.ReactNode
@@ -10,7 +10,7 @@ type LayoutProps = {
 
 export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await props.params
-  const { data: post } = await postService.getPostBySlug(slug)
+  const post = await postService.getPostBySlug(slug)
 
   if (!post) {
     return {

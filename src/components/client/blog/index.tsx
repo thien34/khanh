@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils'
 import PostPreview from './PostPreview'
-import { Posts } from '@/types/post'
+import { Posts } from '@/servers/interfaces/post'
 
 const PINNED_POST = 'the-2023-retrospective'
 

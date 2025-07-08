@@ -1,4 +1,4 @@
-import { postService } from '@/services/PostService'
+import { postService } from '@/servers/services/PostService'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import rehypePrism from 'rehype-prism-plus'
@@ -14,16 +14,16 @@ export const dynamicParams = true
 
 // todo: nên chỉ lấy các slug cần ưu tiên vào nhanh, như các bài đầu, bài hot, bài mới nhất
 export async function generateStaticParams() {
-  const { data: slugs } = await postService.getAllPublishedSlugs()
+  const slugs = await postService.getAllPublishedSlugs()
   return slugs.map(({ slug }) => ({ slug }))
 }
 
 export default async function Page({ params }: Readonly<{ params: Promise<{ slug: string }> }>) {
   const { slug } = await params
 
-  const { data: post, error } = await postService.getPostBySlug(slug)
+  const post = await postService.getPostBySlug(slug)
 
-  if (error || !post) {
+  if (!post) {
     notFound()
   }
 
