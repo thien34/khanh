@@ -2,7 +2,6 @@ import { TPageFrontMatter } from '@/types'
 import type { PropsWithChildren, ReactNode } from 'react'
 import PageHeader from '../PageHeader'
 import { cn } from '@/lib/utils'
-import SkipNavigation from '../../navigations/SkipNavigation'
 
 interface PageProps {
   frontMatter: TPageFrontMatter
@@ -16,7 +15,6 @@ function Page({
 }: PropsWithChildren<PageProps>) {
   return (
     <>
-      <SkipNavigation skipTableOfContents={false} />
       <PageHeader
         title={title}
         description={description}

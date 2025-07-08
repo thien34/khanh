@@ -1,7 +1,6 @@
 import type { TPageFrontMatter, TTableOfContents } from '@/types'
 import type { PropsWithChildren } from 'react'
 import PageHeader from '../PageHeader'
-import SkipNavigation from '../../navigations/SkipNavigation'
 import WithTableOfContents from '../WithTableOfContents'
 
 interface PageWithMDXProps {
@@ -16,7 +15,6 @@ function PageWithMDX({
 }: PropsWithChildren<PageWithMDXProps>) {
   return (
     <>
-      <SkipNavigation />
       <PageHeader
         title={title}
         description={description}

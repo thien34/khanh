@@ -2,7 +2,6 @@ import { PropsWithChildren } from 'react'
 // import WithReactions from '@/components/layouts/WithReactions'
 import type { TPostFrontMatter, TTableOfContents } from '@/types'
 import WithTableOfContents from '../../WithTableOfContents'
-import SkipNavigation from '@/components/client/navigations/SkipNavigation'
 import PageHeader from '../../PageHeader'
 import PostMeta from './PostMeta'
 import PostFooter from './PostFooter'
@@ -36,7 +35,6 @@ function Post({
 
   return (
     <>
-      <SkipNavigation />
       <PageHeader
         title={title}
         description={description}
