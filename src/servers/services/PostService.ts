@@ -1,6 +1,5 @@
 import { PostRepository } from '@/servers/repositories/PostRepository'
 import { Post, Posts } from '@/servers/interfaces/post'
-import { PostgrestError } from '@supabase/supabase-js'
 
 interface FindAllPostsOptions {
   limit?: number

@@ -1,5 +1,5 @@
 import { HashtagIcon } from '@/components/Icons'
-import { getSlug } from '@/helpers/mdx'
+import { getSlug } from '@/lib/mdx'
 import { cn } from '@/lib/utils'
 import type { DetailedHTMLProps, HTMLAttributes } from 'react'
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement>

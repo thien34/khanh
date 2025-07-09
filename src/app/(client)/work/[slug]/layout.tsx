@@ -23,12 +23,12 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
 
 export default async function Layout({ children, params }: Readonly<LayoutProps>) {
   const { slug } = await params
-  const { frontMatter } = await getMdxBySlug(slug, 'work')
+  const { frontMatter, tableOfContents } = await getMdxBySlug(slug, 'work')
 
   return (
     <PageWithMDX
       frontMatter={frontMatter}
-      tableOfContents={frontMatter.tableOfContents}
+      tableOfContents={tableOfContents}
     >
       {children}
     </PageWithMDX>

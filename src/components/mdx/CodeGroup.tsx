@@ -1,7 +1,7 @@
 'use client'
 
 import { Children, useState } from 'react'
-import { extractLanguage, formatLang } from '@/helpers/mdx'
+import { extractLanguage, formatLang } from '@/lib/mdx'
 import { type PreProps } from './custom-components/Pre'
 import type { PropsWithChildren, ReactElement } from 'react'
 import { cn } from '@/lib/utils'

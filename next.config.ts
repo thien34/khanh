@@ -3,7 +3,7 @@ import bundeAnalyzer from '@next/bundle-analyzer'
 import createMDX from '@next/mdx'
 import rehypePrism from 'rehype-prism-plus'
 import remarkGfm from 'remark-gfm'
-import withCodeAttributes from './src/helpers/withCodeAttributes'
+import withCodeAttributes from './src/lib/withCodeAttributes'
 
 const isProd = process.env.NODE_ENV === 'production'
 

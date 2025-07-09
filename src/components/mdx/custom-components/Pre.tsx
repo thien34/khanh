@@ -1,6 +1,6 @@
 import type { HTMLAttributes, DetailedHTMLProps, ReactNode, ReactElement } from 'react'
 import Code from '../Code'
-import { extractLanguage, formatLang } from '@/helpers/mdx'
+import { extractLanguage, formatLang } from '@/lib/mdx'
 
 const parseBoolean = (value: string) => value === 'true'
 

@@ -1,6 +1,6 @@
 import NextLink from 'next/link'
 import { ExternalLink, MailIcon } from '@/components/Icons'
-import { urlType } from '@/helpers/mdx'
+import { urlType } from '@/lib/mdx'
 import type { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
 import { cn } from '@/lib/utils'
 
