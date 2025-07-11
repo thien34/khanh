@@ -31,7 +31,7 @@ interface AppWindowProps {
   browserTabs?: Array<BrowserTabProps>
 }
 
-function AppWindow({ children = null, type = 'app', browserTabs = [] }: Readonly<PropsWithChildren<AppWindowProps>>) {
+function AppWindow({ children = null, type = 'app', browserTabs = [] }: PropsWithChildren<AppWindowProps>) {
   const isWithBrowserTabs = type === 'browser' && browserTabs
 
   return (

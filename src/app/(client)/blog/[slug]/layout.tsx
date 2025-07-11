@@ -8,8 +8,8 @@ type LayoutProps = {
   params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await props.params
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+  const { slug } = await params
   const post = await postService.getPostBySlug(slug)
 
   if (!post) {
@@ -22,12 +22,11 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   return GenerateMetadata({
     title: post.title,
     description: post.description,
-    keywords: post.title,
     ogImage: '',
     currentUrl: `${getBaseUrl()}/blog/${slug}`
   })
 }
 
-export default async function Layout({ children }: Readonly<LayoutProps>) {
+export default async function Layout({ children }: LayoutProps) {
   return children
 }

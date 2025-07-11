@@ -10,7 +10,6 @@ type LayoutProps = {
 export const metadata: Metadata = GenerateMetadata({
   title: 'Projects',
   description: 'Showcase of my front-end related work.',
-  keywords: 'lười dev, luoi dev, project, prjects',
   ogImage: ogImage.src,
   currentUrl: `${getBaseUrl()}/projects`
 })

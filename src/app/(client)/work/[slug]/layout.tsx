@@ -9,13 +9,12 @@ type LayoutProps = {
   params: Promise<{ slug: string }>
 }
 
-export async function generateMetadata(props: { params: Promise<{ slug: string }> }): Promise<Metadata> {
-  const { slug } = await props.params
+export async function generateMetadata({ params }: LayoutProps): Promise<Metadata> {
+  const { slug } = await params
   const { frontMatter } = await getMdxBySlug(slug, 'work')
   return GenerateMetadata({
     title: frontMatter.title,
     description: frontMatter.description,
-    keywords: frontMatter.keywords,
     ogImage: frontMatter.ogImage,
     currentUrl: `${getBaseUrl()}/work/${slug}`
   })

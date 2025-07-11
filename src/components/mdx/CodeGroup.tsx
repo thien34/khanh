@@ -7,10 +7,7 @@ import type { PropsWithChildren, ReactElement } from 'react'
 import { cn } from '@/lib/utils'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
-function CodeGroupFile({
-  children = null,
-  isSelected = false
-}: Readonly<PropsWithChildren & { isSelected?: boolean }>) {
+function CodeGroupFile({ children = null, isSelected = false }: PropsWithChildren & { isSelected?: boolean }) {
   return (
     <div className={cn('mdx-code-group__file')}>
       <div className={cn('mdx-code-group__file-content')}>

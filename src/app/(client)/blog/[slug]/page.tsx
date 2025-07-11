@@ -12,13 +12,17 @@ import { extractTableOfContents } from '@/lib/mdx'
 export const revalidate = 60
 export const dynamicParams = true
 
+type PageProps = {
+  params: Promise<{ slug: string }>
+}
+
 // todo: nên chỉ lấy các slug cần ưu tiên vào nhanh, như các bài đầu, bài hot, bài mới nhất
 export async function generateStaticParams() {
   const slugs = await postService.getAllPublishedSlugs()
   return slugs.map(({ slug }) => ({ slug }))
 }
 
-export default async function Page({ params }: Readonly<{ params: Promise<{ slug: string }> }>) {
+export default async function Page({ params }: Readonly<PageProps>) {
   const { slug } = await params
 
   const post = await postService.getPostBySlug(slug)

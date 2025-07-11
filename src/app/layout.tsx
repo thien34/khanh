@@ -21,11 +21,8 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = GenerateMetadata({
   title: 'Lười Dev',
   description: 'Một blog về phát triển web, kỹ thuật phần mềm và các chủ đề liên quan đến công nghệ và đời sống.',
-  keywords:
-    'lười dev, luoi dev, blog, phát triển web, kỹ thuật phần mềm, công nghệ, web development, software engineering',
   ogImage: ogImage.src,
-  currentUrl: `${getBaseUrl()}`,
-  overrideTitle: true
+  currentUrl: `${getBaseUrl()}`
 })
 
 export const revalidate = 86400 // One day (ISR)
