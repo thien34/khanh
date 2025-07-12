@@ -1,26 +1,15 @@
-import { MetadataRoute } from 'next'
+import type { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
         userAgent: '*',
-        allow: ['/'],
-        disallow: ['/private/', '/admin/']
-      },
-      {
-        userAgent: 'Twitterbot',
-        allow: ['/']
-      },
-      {
-        userAgent: 'facebookexternalhit',
-        allow: ['/']
-      },
-      {
-        userAgent: 'LinkedInBot',
-        allow: ['/']
+        allow: '/',
+        disallow: ['/private/', '/admin/', '/api/', '/auth/', '/dashboard/', '/server/', '/preview/']
       }
     ],
-    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`
+    sitemap: `${process.env.NEXT_PUBLIC_BASE_URL}/sitemap.xml`,
+    host: process.env.NEXT_PUBLIC_BASE_URL
   }
 }

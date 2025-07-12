@@ -21,6 +21,10 @@ export class PostService {
   async getAllPublishedSlugs(): Promise<{ slug: string }[]> {
     return this.repository.findAllSlugs()
   }
+
+  async getAllSlugsWithUpdatedDate(): Promise<{ slug: string; updatedAt: Date }[]> {
+    return this.repository.findAllSlugsWithUpdatedDate()
+  }
 }
 
 export const postService = new PostService()

@@ -73,6 +73,21 @@ export class PostRepository {
 
     return data
   }
+
+  async findAllSlugsWithUpdatedDate(): Promise<{ slug: string; updatedAt: Date }[]> {
+    const supabase = createClient()
+    const { data, error } = await supabase
+      .from('content_meta')
+      .select('slug, updated_at') // Select the slug
+      .eq('published', true)
+
+    if (error) throw new Error(error.message)
+
+    return data.map(item => ({
+      slug: item.slug,
+      updatedAt: new Date(item.updated_at)
+    }))
+  }
 }
 
 export const postRepository = new PostRepository()
