@@ -1,0 +1,457 @@
+export const frontMatter = {
+  title: 'MDX Components Documentation',
+  description:
+    'Hướng dẫn toàn diện về các component và style được sử dụng trong MDX. Tài liệu chi tiết cho developers.',
+  caption: 'Documentation',
+  ogImage: 'https://luoi.dev/og/docs.png'
+}
+
+import { Label } from '@/components/mdx/Labels'
+import { VStack, HStack } from '@/components/mdx/Stack'
+import Image from '@/components/mdx/Image'
+import ImageSensitive from '@/components/mdx/ImageSensitive'
+import CodeGroup from '@/components/mdx/CodeGroup'
+import Kbd from '@/components/Kbd'
+import Callout from '@/components/mdx/Callout'
+import InlineHighlight from '@/components/mdx/InlineHighlight'
+import { QuickView } from '@/components/mdx/Link'
+import { Dont, Do } from '@/components/mdx/TIL'
+
+# MDX Components Documentation
+
+Tài liệu hướng dẫn sử dụng các component và style trong hệ thống MDX. Bao gồm cú pháp, tham số, và ví dụ thực tế.
+
+---
+
+## Định dạng văn bản cơ bản
+
+### Typography
+
+#### Heading Levels
+
+```markdown {copy:false} {footer:false}
+## Heading 1
+
+### Heading 2
+```
+
+#### Text Formatting
+
+- **Bold text**: `**text**` → **Bold text**
+- _Italic text_: `*text*` → _Italic text_
+- `Inline code`: `` `code` `` → `inline code`
+
+### Lists
+
+**Unordered Lists:**
+
+```markdown {copy:false} {footer:false}
+- Item 1
+- Item 2
+  - Sub item 2.1
+  - Sub item 2.2
+```
+
+**Ordered Lists:**
+
+```markdown {copy:false} {footer:false}
+1. First item
+2. Second item
+3. Third item
+```
+
+### Blockquotes
+
+```markdown {copy:false} {footer:false}
+> Đây là một blockquote.
+> Có thể viết nhiều dòng.
+```
+
+> Đây là một blockquote.
+> Có thể viết nhiều dòng.
+
+### Links
+
+```markdown {copy:false} {footer:false}
+[Link text](URL)
+```
+
+Ví dụ: [Tailwind CSS Documentation](http://localhost:3000/docs)
+
+---
+
+## Components Layout
+
+### Stack Components
+
+Sử dụng để sắp xếp các element theo chiều ngang hoặc dọc.
+
+#### HStack - Horizontal Stack
+
+```jsx {copy:false} {footer:false}
+<HStack spacing={8}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+</HStack>
+```
+
+#### VStack - Vertical Stack
+
+```jsx {copy:false} {footer:false}
+<VStack spacing={4}>
+  <div>Item 1</div>
+  <div>Item 2</div>
+</VStack>
+```
+
+**Parameters:**
+
+- `spacing`: Khoảng cách giữa các items (number)
+- `children`: React nodes
+
+### Label Component
+
+Hiển thị nhãn với chỉ số hoặc trạng thái.
+
+```jsx {copy:false} {footer:false}
+<HStack spacing={8}>
+  <Label indicator={100}>Frequently Used</Label>
+  <Label indicator={25}>Occasionally</Label>
+</HStack>
+```
+
+<HStack spacing={8}>
+  <Label indicator={100}>Frequently Used</Label>
+  <Label indicator={25}>Occasionally</Label>
+</HStack>
+
+**Parameters:**
+
+- `indicator`: Số hiển thị bên cạnh label (optional)
+- `children`: Nội dung text của label
+
+---
+
+## Components Media
+
+### Image Component
+
+#### Standard Image
+
+```jsx {copy:false} {footer:false}
+<Image
+  src='/images/van-gogh.jpg'
+  alt='Current workspace'
+  width={348}
+  height={246}
+/>
+```
+
+<Image
+  src='/images/van-gogh.jpg'
+  alt='Current workspace'
+  width={348}
+  height={246}
+/>
+
+**Parameters:**
+
+- `src`: Đường dẫn hình ảnh (required)
+- `alt`: Alt text (required)
+- `width`: Chiều rộng (required)
+- `height`: Chiều cao (required)
+
+#### Sensitive Image
+
+Dành cho hình ảnh nhạy cảm, có blur và warning.
+
+```jsx {copy:false} {footer:false}
+<ImageSensitive
+  message='Rontgen Kaki dan Tangan'
+  src='/images/van-gogh.jpg'
+  alt='Rontgen pergelangan kaki kanan dan pergelangan tangan kiri'
+  width={702}
+  height={419}
+/>
+```
+
+<ImageSensitive
+  message='Rontgen Kaki dan Tangan'
+  src='/images/van-gogh.jpg'
+  alt='Rontgen pergelangan kaki kanan dan pergelangan tangan kiri'
+  width={702}
+  height={419}
+/>
+
+**Parameters:**
+
+- `message`: Thông báo cảnh báo (required)
+- `src`, `alt`, `width`, `height`: Giống Image component
+
+---
+
+## Components Tương tác
+
+### Keyboard Component (Kbd)
+
+Hiển thị phím bàn phím.
+
+```jsx {copy:false} {footer:false}
+<Kbd>Alt</Kbd>
+<Kbd>Ctrl</Kbd> + <Kbd>C</Kbd>
+```
+
+<span className='text-xs'>
+  <Kbd>Alt</Kbd>
+  <Kbd>Ctrl</Kbd> + <Kbd>C</Kbd>
+</span>
+
+### Quick View Link
+
+Link nhanh với styling đặc biệt.
+
+```jsx {copy:false} {footer:false}
+<QuickView href='/blog/nextjs-tailwind#section'>Xem chi tiết tại đây</QuickView>
+```
+
+<QuickView href='/blog/tentang-nextjs-tailwind-css-dan-framer-motion#tailwind-css'>Xem chi tiết tại đây</QuickView>
+
+### Tables
+
+```markdown {copy:false} {footer:false}
+| Column 1 | Column 2 | Column 3 |
+| -------- | -------- | -------- |
+| Row 1    | Data     | Value    |
+| Row 2    | Data     | Value    |
+```
+
+| Contact  | Detail             |
+| -------- | ------------------ |
+| Address  | Bandung, Indonesia |
+| Timezone | GMT+7              |
+| E-mail   | business@enji.dev  |
+
+---
+
+## Components Code
+
+### Inline Code Highlighting
+
+```jsx {copy:false} {footer:false}
+<InlineHighlight color='blue'>data-accent</InlineHighlight>
+<InlineHighlight color='accent'>highlighted text</InlineHighlight>
+<InlineHighlight color='violet'>violet highlight</InlineHighlight>
+```
+
+**Colors available:** `'accent'` | `'blue'` | `'violet'`
+
+<InlineHighlight color='blue'>`data-accent`</InlineHighlight>
+
+### Code Blocks
+
+#### Basic Code Block
+
+````markdown
+```language
+code here
+```
+````
+
+#### Code Block với Line Highlighting
+
+````markdown {5}
+```html {4}
+<button>
+  <span>Icon</span>
+  <span>Text</span>
+  Button Text
+</button>
+```
+````
+
+#### Code Block với Line Numbers
+
+````markdown showLineNumbers {selected:6-10} {6-10}
+```js showLineNumbers {selected:6-10}
+module.exports = {
+  theme: {
+    // config
+  },
+  plugins: [
+    require('tailwindcss-accent')({
+      colors: ['violet', 'blue'],
+      root: 'blue',
+      cssVarsPrefix: 'tw-plugin'
+    })
+  ]
+}
+```
+````
+
+#### Code Options
+
+- `{copy:false}`: Ẩn nút copy
+- `{footer:false}`: Ẩn footer
+- `{title:filename.js}`: Hiển thị tên file
+- `showLineNumbers`: Hiển thị số dòng
+- `{4}` hoặc `{4-8}`: Highlight dòng
+- `{selected:6-10}`: Hiển thị range đã chọn ở footer
+
+### CodeGroup Component
+
+Nhóm nhiều code blocks với tabs.
+
+````jsx {copy:false} {footer:false}
+<CodeGroup>
+```bash {title:npm}
+npm install package
+```
+
+```bash {title:yarn}
+yarn add package
+```
+
+```bash {title:pnpm}
+pnpm add package
+```
+</CodeGroup>
+````
+
+<CodeGroup>
+ 
+```bash {title:npm}
+npm install -D tailwindcss-accent
+```
+
+```bash {title:yarn}
+yarn add -D tailwindcss-accent
+```
+
+```bash {title:pnpm}
+pnpm add -D tailwindcss-accent
+```
+
+</CodeGroup>
+
+#### CodeGroup với Files
+
+````jsx {copy:false} {footer:false}
+<CodeGroup variant="files">
+```html {title:index.html}
+<button class="btn">Click me</button>
+```
+
+```css {title:styles.css}
+.btn {
+  @apply bg-blue-500 text-white px-4 py-2 rounded;
+}
+```
+</CodeGroup>
+````
+
+<CodeGroup variant="files">
+
+```html {copy:false} {footer:false} {title:index.html}
+<button class="pagination-button">Previous</button>
+<button class="pagination-button">1</button>
+<button class="pagination-button">2</button>
+<button class="pagination-button">3</button>
+<button class="pagination-button">4</button>
+<button class="pagination-button">Next</button>
+```
+
+```css {copy:false} {footer:false} {title:styles.css}
+.pagination-button {
+  @apply inline-flex h-10 items-center justify-center gap-1.5 rounded-md border;@apply border-transparent bg-purple-600 px-4 text-center text-sm font-bold;@apply text-white transition duration-150';
+  @apply md:rounded-xl;
+  @apply dark:bg-purple-600 dark:hover:bg-purple-500;
+  @apply hover:bg-purple-700;
+}
+```
+
+</CodeGroup>
+
+---
+
+## Components Notification
+
+### Callout Component
+
+Hiển thị thông báo với các mức độ khác nhau.
+
+```jsx {copy:false} {footer:false}
+<Callout variant='info'>
+  Thông tin bổ sung cho người đọc.
+</Callout>
+
+<Callout variant='warning'>
+  Cảnh báo quan trọng cần chú ý.
+</Callout>
+
+<Callout variant='danger'>
+  Lỗi nghiêm trọng hoặc cảnh báo nguy hiểm.
+</Callout>
+
+<Callout variant='neutral'>
+  Ghi chú trung tính.
+</Callout>
+```
+
+**Variants available:** `'neutral'` | `'info'` | `'warning'` | `'danger'`
+
+<Callout variant='warning'>
+
+The `cssVarsPrefix` option can help prevent naming conflicts and make it easier for you to use accent CSS variables in your styles.
+
+</Callout>
+
+### Do/Don't Components
+
+Hiển thị ví dụ đúng và sai.
+
+````jsx {copy:false} {footer:false}
+<Dont>
+```tsx
+<div className={`text-black ${dark && 'text-white'}`}>
+  Hello, World!
+</div>
+```
+</Dont>
+
+<Do>
+```tsx
+<div className={dark ? 'text-white' : 'text-black'}>
+  Hello, World!
+</div>
+```
+</Do>
+````
+
+<Dont>
+  ```tsx {copy:false} {footer:false}
+  <div className={`text-black ${dark && 'text-white'}`}>
+    Hello, World!
+  </div>
+  ```
+</Dont>
+<Do>
+  ```tsx {copy:false} {footer:false}
+  <div className={dark ? 'text-white' : 'text-black'}>
+    Hello, World!
+  </div>
+  ```
+</Do>
+
+---
+
+## Tính năng sắp có
+
+- Numbered lines starting from custom position
+- Code text highlighting within blocks
+- Git history integration with +/- indicators
+- Interactive code playground
+- Code folding/expanding
+
+---
+
+_Tài liệu này được cập nhật thường xuyên. Hãy kiểm tra version mới nhất để có thông tin chính xác nhất._

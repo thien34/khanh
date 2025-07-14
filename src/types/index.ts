@@ -11,7 +11,9 @@ export type TBaseFrontMatter = {
   caption?: string
 }
 
-export type TPageFrontMatter = TBaseFrontMatter
+export type TPageFrontMatter = TBaseFrontMatter & {
+  ogImage?: string
+}
 
 export type TPageOgImage = Partial<Pick<TPageFrontMatter, 'title' | 'description'>>
 

@@ -50,4 +50,9 @@
   pre {
     font-family: var(--font-serif);
   }
+
+  img,
+  video {
+    height: revert-layer;
+  }
 }

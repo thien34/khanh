@@ -22,7 +22,7 @@ export default function Image({ className, src, ...props }: ImageProps) {
       ) : null}
       <NextImage
         src={src}
-        className={cn('rounded-lg border', className)}
+        className={cn('rounded-lg border object-cover', className)}
         {...props}
         onLoad={event => {
           setImage(event.currentTarget.currentSrc)

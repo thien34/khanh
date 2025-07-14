@@ -21,7 +21,7 @@ function ProjectsContents() {
         description='E-commerce website project with advanced sales and management.'
         button={{
           title: 'learn more',
-          href: '/docs/#'
+          href: '#'
         }}
       />
       <SectionContent>

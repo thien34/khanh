@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
   return GenerateMetadata({
     title: frontMatter.title,
     description: frontMatter.description,
-    ogImage: frontMatter.ogImage,
+    ogImage: frontMatter?.ogImage || '',
     currentUrl: `${getBaseUrl()}/work/${slug}`
   })
 }
