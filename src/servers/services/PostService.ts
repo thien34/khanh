@@ -1,4 +1,4 @@
-import { PostRepository } from '@/servers/repositories/PostRepository'
+import { PostRepository } from '@/servers/repositories/postRepository'
 import { Post, Posts } from '@/servers/interfaces/post'
 
 interface FindAllPostsOptions {
