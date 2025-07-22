@@ -1,7 +1,7 @@
 import { GenerateMetadata } from '@/components/client/meta/Metadata'
 import { getBaseUrl } from '@/lib/url'
 import { Metadata } from 'next'
-import { postService } from '@/servers/services/PostService'
+import { postService } from '@/servers/services/post-service'
 
 type LayoutProps = {
   children: React.ReactNode

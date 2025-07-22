@@ -1,4 +1,4 @@
-import { postService } from '@/servers/services/PostService'
+import { postService } from '@/servers/services/post-service'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote-client/rsc'
 import rehypePrism from 'rehype-prism-plus'
