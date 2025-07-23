@@ -78,7 +78,6 @@ function TableOfContents({ items = [] }: Readonly<TableOfContensProps>) {
                   slug={slug}
                   active={isActive}
                 />
-                {isActive && <div className={cn('toc-visible')} />}
               </li>
             )
           })}
