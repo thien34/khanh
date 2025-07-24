@@ -11,15 +11,12 @@ function HeaderImage() {
       <div className={cn('absolute right-0 bottom-0 overflow-hidden')}>
         <motion.div
           initial={{ x: 32, opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1
-          }}
+          animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.15 }}
         >
           <Image
             alt='khanh'
-            src={avatarImage.src}
+            src={avatarImage}
             width={500}
             height={500}
             className={cn('hidden max-w-none', 'lg:block')}

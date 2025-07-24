@@ -65,18 +65,6 @@
   @apply md:h-12 md:rounded-xl md:px-6;
   @apply transition-all duration-300 ease-in-out;
   @apply hover:scale-105 active:scale-95;
-  @apply relative;
-}
-
-.button::before {
-  @apply absolute top-0 left-[-100%] h-full w-full content-[''];
-  @apply bg-gradient-to-r from-transparent via-white/20 to-transparent;
-  @apply transition-[left] duration-500 ease-in-out;
-  @apply pointer-events-none;
-}
-
-.button:hover::before {
-  @apply left-1/2;
 }
 
 .button--solid {

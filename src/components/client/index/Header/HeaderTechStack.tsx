@@ -31,7 +31,7 @@ function HeaderTechStack() {
         current favorite tech stack/tools:
       </motion.p>
       <motion.ul
-        className={cn('flex items-center gap-3.5 text-slate-500', 'dark:text-slate-500')}
+        className={cn('flex flex-wrap items-center gap-x-3.5 gap-y-2 text-slate-500', 'dark:text-slate-500')}
         initial='hide'
         animate='show'
         transition={{ delayChildren: 0.6, staggerChildren: 0.025 }}

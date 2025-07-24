@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 
 const Logo = () => {
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
+  const isNotActive = pathname !== '/'
 
   return (
     <Link
@@ -17,11 +17,11 @@ const Logo = () => {
           className={cn(
             'flex size-8 items-center justify-center rounded-xl border-2 border-purple-600',
             'sm:h-6 sm:w-6 sm:rounded-lg',
-            isHomePage ? 'bg-purple-600' : 'bg-white'
+            isNotActive ? 'bg-white' : 'bg-purple-600'
           )}
         >
           <div
-            className={cn('h-3.5 w-0.5 rotate-12 rounded-full', isHomePage ? 'bg-white' : 'bg-purple-600', 'sm:h-3')}
+            className={cn('h-3.5 w-0.5 rotate-12 rounded-full', isNotActive ? 'bg-purple-600' : 'bg-white', 'sm:h-3')}
           />
         </div>
         <div className={cn('hidden text-xl', 'sm:block')}>

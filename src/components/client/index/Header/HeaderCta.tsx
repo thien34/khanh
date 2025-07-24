@@ -45,7 +45,7 @@ function ButtonResume() {
 function HeaderCta() {
   return (
     <motion.div
-      className={cn('flex gap-2')}
+      className={cn('flex flex-wrap gap-2')}
       initial='hide'
       animate='show'
     >

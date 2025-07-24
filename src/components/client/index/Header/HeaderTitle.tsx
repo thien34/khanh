@@ -44,11 +44,11 @@ function HeaderTitle() {
           }}
         >
           <Image
-            className={cn('w-7', 'md:w-10')}
+            className={cn('size-7', 'md:size-10')}
             alt='Love-you Gesture'
             src={loveYouGesture.src}
-            width={48}
-            height={48}
+            width={40}
+            height={40}
             onLoad={() => {
               controls.start({
                 opacity: 1,
