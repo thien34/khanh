@@ -1,81 +1,113 @@
+'use client'
+
 import { cn } from '@/lib/utils'
-import PostPreview from './PostPreview'
-import { Posts } from '@/servers/interfaces/post'
+import PostPreview, { PostPreviewProps } from './PostPreview'
+import BlogSidebar from './BlogSidebar'
+import BlogFilter from './BlogFilter'
+import { Posts } from '@/servers/interfaces/post.interface'
+import { motion } from 'framer-motion'
+import { useState } from 'react'
 
-const PINNED_POST = 'the-2023-retrospective'
-
-type TPostPreview = {
-  slug: string
-  title: string
-  createdAt: string
-  lang: string
-  description: string
-}
 type BlogContentsProps = {
   posts: Posts[]
 }
 
 function BlogContents({ posts }: Readonly<BlogContentsProps>) {
-  let pinnedPost: TPostPreview | undefined
-  const postsPreview: Array<TPostPreview> = []
+  const [sortBy, setSortBy] = useState('newest')
+  const [filterBy, setFilterBy] = useState('all')
+  const [showFilters, setShowFilters] = useState(false)
 
-  posts.forEach(({ slug, title, createdAt, lang, description }) => {
-    const preview: TPostPreview = {
+  const postsPreview: Array<PostPreviewProps> = []
+
+  posts.forEach(({ slug, title, createdAt, lang, description, author, thumbnail, tags, readTime }) => {
+    const preview: PostPreviewProps = {
       slug,
       title,
-      createdAt: createdAt.toISOString(),
+      date: createdAt.toISOString(),
       lang,
-      description
+      description,
+      thumbnail,
+      author: {
+        name: author.name,
+        avatar: author.avatarUrl,
+        verified: author.isVerified
+      },
+      readTime,
+      views: Math.floor(Math.random() * 7950) + 50,
+      upvotes: Math.floor(Math.random() * 500) + 10,
+      tags: tags.map(tag => tag.name)
     }
 
-    if (slug === PINNED_POST) {
-      pinnedPost = preview
-    } else {
-      postsPreview.push(preview)
+    postsPreview.push(preview)
+  })
+
+  // Sort posts based on selected option
+  const sortedPosts = [...postsPreview].sort((a, b) => {
+    switch (sortBy) {
+      case 'popular':
+        return (b.views || 0) - (a.views || 0)
+      case 'trending':
+        return (b.views || 0) - (a.views || 0)
+      case 'oldest':
+        return new Date(a.date).getTime() - new Date(b.date).getTime()
+      default: // newest
+        return new Date(b.date).getTime() - new Date(a.date).getTime()
     }
   })
 
   return (
     <div className={cn('content-wrapper')}>
-      <div className={cn('flex flex-col gap-8', 'md:flex-row md:gap-8 lg:gap-24')}>
-        <div className={cn('md:w-64')}>{/* TODO: Filter Posts */}</div>
-        <div className={cn('flex-1')}>
-          {pinnedPost && (
-            <div className={cn('mb-8 flex items-start gap-4', 'md:mb-12 md:gap-6')}>
-              <div className={cn('flex-1')}>
-                <PostPreview
-                  pinned
-                  slug={pinnedPost.slug}
-                  title={pinnedPost.title}
-                  description={pinnedPost.description}
-                  date={pinnedPost.createdAt}
-                  lang={pinnedPost.lang}
-                  views={0}
-                  shares={0}
-                />
-              </div>
-            </div>
-          )}
+      <div className={cn('flex flex-col gap-8', 'lg:flex-row lg:gap-12')}>
+        {/* Sidebar */}
+        <div className={cn('order-2 lg:order-1 lg:w-80')}>
+          <BlogSidebar />
+        </div>
 
-          {postsPreview.map(({ slug, title, createdAt, lang, description }) => (
-            <div
-              key={slug}
-              className={cn('mb-8 flex items-start gap-4', 'md:mb-4 md:gap-6')}
-            >
-              <div className={cn('mt-14 hidden w-8 -translate-y-1 border-b', 'md:mt-16 md:w-20 lg:block')} />
-              <div className={cn('flex-1')}>
-                <PostPreview
-                  slug={slug}
-                  title={title}
-                  description={description}
-                  date={createdAt}
-                  lang={lang}
-                  views={0}
-                  shares={0}
-                />
-              </div>
-            </div>
-          ))}
+        {/* Main Content */}
+        <div className={cn('order-1 flex-1 lg:order-2')}>
+          {/* Filter Component */}
+          <BlogFilter
+            showFilters={showFilters}
+            setShowFilters={setShowFilters}
+            filterBy={filterBy}
+            setFilterBy={setFilterBy}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            postsCount={sortedPosts.length}
+          />
+
+          {/* Posts Grid */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className={cn('grid gap-6', 'md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2')}
+          >
+            {sortedPosts
+              .filter(post => filterBy === 'all' || post.tags?.includes(filterBy))
+              .map((post, index) => (
+                <motion.div
+                  key={post.slug}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                >
+                  <PostPreview
+                    slug={post.slug}
+                    title={post.title}
+                    description={post.description}
+                    date={post.date}
+                    lang={post.lang}
+                    views={post.views}
+                    thumbnail={post.thumbnail}
+                    author={post.author}
+                    readTime={post.readTime}
+                    tags={post.tags}
+                    upvotes={post.upvotes}
+                  />
+                </motion.div>
+              ))}
+          </motion.div>
         </div>
       </div>
     </div>

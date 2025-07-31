@@ -1,50 +1,53 @@
 import { createClient } from '@/lib/supabase/client'
 import { createClient as createServerClient } from '@/lib/supabase/server'
-import { Post, Posts } from '@/servers/interfaces/post'
-
-interface FindAllPostsOptions {
-  limit?: number
-  offset?: number
-  // Add other options like category filtering if needed
-}
+import { PostSummaryModel } from '../models/post.model'
+import { Post } from '../interfaces/post.interface'
 
 export class PostRepository {
-  async findPostsPublished(options: FindAllPostsOptions = {}): Promise<Posts[]> {
+  async findPostsPublished(): Promise<PostSummaryModel[]> {
     const supabase = createClient()
-    let query = supabase
-      .from('content_meta')
-      .select('id, type, title, slug, created_at, updated_at, lang, description')
+    const query = supabase
+      .from('content_blog')
+      .select(
+        `
+        title, slug, created_at, lang, description, author_id, thumbnail, read_time,
+        content_user:author_id (
+          name, avatar_url, is_verified
+        ),
+        content_blog_tag (  
+          content_tag:tag_id (
+            name, slug
+          )
+        )
+      `
+      )
       .eq('published', true)
+      .eq('type', 'blog')
       .order('created_at', { ascending: false })
-
-    if (options.limit) {
-      query = query.limit(options.limit)
-    }
-    if (options.offset) {
-      const from = options.offset
-      const to = from + (options.limit ? options.limit - 1 : Infinity)
-      query = query.range(from, to)
-    }
 
     const { data, error } = await query
     if (error) throw new Error(error.message)
 
-    // Transform snake_case to camelCase
-    const transformedData: Posts[] = data
-      ? data.map(item => ({
-          ...item,
-          createdAt: new Date(item.created_at),
-          updatedAt: new Date(item.updated_at)
-        }))
-      : []
-
-    return transformedData
+    return data.map(item => {
+      const { content_blog_tag, ...rest } = item
+      return {
+        ...rest,
+        content_user: Array.isArray(item.content_user) ? item.content_user[0] : item.content_user,
+        tags: Array.isArray(content_blog_tag)
+          ? content_blog_tag
+              .flatMap(tagRelation =>
+                Array.isArray(tagRelation.content_tag) ? tagRelation.content_tag : [tagRelation.content_tag]
+              )
+              .filter(Boolean)
+          : []
+      }
+    })
   }
 
   async findBySlug(slug: string): Promise<Post> {
     const supabase = await createServerClient()
     const { data, error } = await supabase
-      .from('content_meta')
+      .from('content_blog')
       .select('*')
       .eq('slug', slug)
       .eq('published', true)
@@ -65,7 +68,7 @@ export class PostRepository {
   async findAllSlugs(): Promise<{ slug: string }[]> {
     const supabase = createClient()
     const { data, error } = await supabase
-      .from('content_meta')
+      .from('content_blog')
       .select('slug') // Select the slug
       .eq('published', true) // Only generate paths for published posts
 
@@ -77,7 +80,7 @@ export class PostRepository {
   async findAllSlugsWithUpdatedDate(): Promise<{ slug: string; updatedAt: Date }[]> {
     const supabase = createClient()
     const { data, error } = await supabase
-      .from('content_meta')
+      .from('content_blog')
       .select('slug, updated_at') // Select the slug
       .eq('published', true)
 

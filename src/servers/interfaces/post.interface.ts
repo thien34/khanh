@@ -1,3 +1,5 @@
+import { User } from './user.interface'
+
 export interface Post {
   id: string
   type: string
@@ -9,15 +11,20 @@ export interface Post {
   content: string
   lang: string
   description: string
+  thumbnail: string
 }
 
 export interface Posts {
-  id: string
-  type: string
   title: string
   slug: string
   createdAt: Date
-  updatedAt: Date
   lang: string
   description: string
+  thumbnail: string
+  readTime: number
+  author: User
+  tags: {
+    name: string
+    slug: string
+  }[]
 }

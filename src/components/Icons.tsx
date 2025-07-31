@@ -272,55 +272,6 @@ export function YoutubeIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
   )
 }
 
-export function PinIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      stroke='currentColor'
-      fill='currentColor'
-      strokeWidth='0'
-      {...props}
-    >
-      <path d='M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z' />
-    </svg>
-  )
-}
-
-export function InsightIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
-  return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      strokeWidth='2'
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      stroke='currentColor'
-      fill='none'
-      {...props}
-    >
-      <line
-        x1='18'
-        y1='20'
-        x2='18'
-        y2='10'
-      />
-      <line
-        x1='12'
-        y1='20'
-        x2='12'
-        y2='4'
-      />
-      <line
-        x1='6'
-        y1='20'
-        x2='6'
-        y2='14'
-      />
-    </svg>
-  )
-}
-
 export function CheckCircleIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
   return (
     <svg
@@ -575,6 +526,183 @@ export function LanguageIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
         fillRule='evenodd'
         d='M13 8a.75.75 0 01.671.415l4.25 8.5a.75.75 0 11-1.342.67L15.787 16h-5.573l-.793 1.585a.75.75 0 11-1.342-.67l4.25-8.5A.75.75 0 0113 8zm2.037 6.5L13 10.427 10.964 14.5h4.073z'
         clipRule='evenodd'
+      />
+    </svg>
+  )
+}
+
+export function SearchIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z'
+      />
+    </svg>
+  )
+}
+
+export function FilterIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z'
+      />
+    </svg>
+  )
+}
+
+export function TrendingIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941'
+      />
+    </svg>
+  )
+}
+
+export function FireIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      viewBox='0 0 24 24'
+      fill='currentColor'
+      {...props}
+    >
+      <path d='M13.5 4.06c0-1.336-1.616-2.005-2.56-1.06l-4.5 4.5H4.508c-1.141 0-2.318.664-2.66 1.905A9.76 9.76 0 0 0 1.5 12c0 5.185 3.947 9.449 9 9.95V4.06ZM22.358 12c0 5.185-3.947 9.449-9 9.95a.75.75 0 0 1-.358-.75v-3.135a.75.75 0 0 1 .409-.665 6.75 6.75 0 0 0-1.5-13.298.75.75 0 0 1-.358-.668V4.06c0-1.336 1.616-2.005 2.56-1.06l4.5 4.5h1.992c1.141 0 2.318.664 2.66 1.905A9.76 9.76 0 0 1 22.358 12Z' />
+    </svg>
+  )
+}
+
+export function ClockIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'
+      />
+    </svg>
+  )
+}
+
+export function CheckVerifiedIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      viewBox='0 0 20 20'
+      fill='currentColor'
+      {...props}
+    >
+      <path
+        fillRule='evenodd'
+        d='M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.883l-3.236 4.53L7.73 9.77a.75.75 0 0 0-1.06 1.061l2.03 2.03a.75.75 0 0 0 1.137-.089l3.5-4.9Z'
+        clipRule='evenodd'
+      />
+    </svg>
+  )
+}
+
+export function BookmarkIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z'
+      />
+    </svg>
+  )
+}
+
+export function ShareIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.128-2.077 2.25 2.25 0 0 0-3.128 2.077Z'
+      />
+    </svg>
+  )
+}
+
+export function EyeIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z'
+      />
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z'
+      />
+    </svg>
+  )
+}
+
+export function UpvoteIcon({ ...props }: Readonly<ComponentProps<'svg'>>) {
+  return (
+    <svg
+      fill='none'
+      viewBox='0 0 24 24'
+      strokeWidth={1.5}
+      stroke='currentColor'
+      {...props}
+    >
+      <path
+        strokeLinecap='round'
+        strokeLinejoin='round'
+        d='M7 18V13H3L10 5L17 13H13V18H7Z'
       />
     </svg>
   )
