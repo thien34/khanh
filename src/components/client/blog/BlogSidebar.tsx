@@ -56,7 +56,7 @@ function BlogSidebar() {
           'shadow-lg shadow-purple-500/5'
         )}
       >
-        <h3 className={cn('mb-4 text-sm font-bold text-slate-900', 'dark:text-slate-100')}>Danh mục</h3>
+        <h2 className={cn('mb-4 text-sm font-bold text-slate-900', 'dark:text-slate-100')}>Danh mục</h2>
         <div className={cn('space-y-2')}>
           {categories.map(category => {
             const Icon = category.icon
@@ -82,7 +82,7 @@ function BlogSidebar() {
                     'rounded-full px-2 py-0.5 text-xs font-bold',
                     activeCategory === category.id
                       ? 'bg-white/20'
-                      : 'bg-slate-100 text-slate-500 dark:bg-slate-700 dark:text-slate-400'
+                      : 'bg-slate-200 text-slate-600 dark:bg-slate-600 dark:text-slate-300'
                   )}
                 >
                   {category.count}

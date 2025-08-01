@@ -155,7 +155,7 @@ function PostPreview({
                         alt={author.name}
                         width={32}
                         height={32}
-                        className='rounded-full'
+                        className='rounded-full object-cover'
                       />
                     </div>
                     {author.verified && (

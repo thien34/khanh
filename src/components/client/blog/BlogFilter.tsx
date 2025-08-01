@@ -62,20 +62,29 @@ function BlogFilter({
             Bộ lọc
           </button>
 
-          <select
-            value={sortBy}
-            onChange={e => setSortBy(e.target.value)}
-            className='cursor-pointer rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-50 focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
-          >
-            {sortOptions.map(option => (
-              <option
-                key={option.value}
-                value={option.value}
-              >
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <div className='flex items-center gap-2'>
+            <label
+              htmlFor='sort-select'
+              className='text-sm font-medium text-slate-700 dark:text-slate-300'
+            >
+              Sắp xếp:
+            </label>
+            <select
+              id='sort-select'
+              value={sortBy}
+              onChange={e => setSortBy(e.target.value)}
+              className='cursor-pointer rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-50 focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
+            >
+              {sortOptions.map(option => (
+                <option
+                  key={option.value}
+                  value={option.value}
+                >
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
       </motion.div>
 
