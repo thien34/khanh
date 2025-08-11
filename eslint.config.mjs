@@ -28,6 +28,7 @@ const eslintConfig = [
       'react-hooks/rules-of-hooks': 'warn',
       'react-hooks/exhaustive-deps': 'warn',
       'react/no-unknown-property': ['error', { ignore: ['css'] }],
+      'react/no-unescaped-entities': 'off',
       'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',
 
@@ -35,7 +36,21 @@ const eslintConfig = [
       '@next/next/no-img-element': 'warn',
 
       // General rules
-      'no-console': ['warn', { allow: ['warn', 'error'] }]
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+
+      'no-restricted-imports': [
+        'warn',
+        {
+          patterns: [
+            {
+              group: ['react'],
+              importNames: ['default'],
+              message:
+                'React import not needed! With React 17+ and modern tooling, JSX works without importing React. Use named imports only when needed.'
+            }
+          ]
+        }
+      ]
     }
   }
 ]

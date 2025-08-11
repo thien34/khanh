@@ -9,7 +9,7 @@ interface PageProps {
 }
 
 function Page({
-  frontMatter: { title, description },
+  frontMatter: { title, description, caption },
   children = null,
   headerImage = null
 }: PropsWithChildren<PageProps>) {
@@ -18,6 +18,7 @@ function Page({
       <PageHeader
         title={title}
         description={description}
+        caption={caption}
         headerImage={headerImage}
       />
       <div

@@ -48,6 +48,7 @@ export default async function Page({ params }: Readonly<PageProps>) {
     >
       <MDXRemote
         source={post.content}
+        // eslint-disable-next-line react-hooks/rules-of-hooks
         components={useMDXComponents({})}
         options={{
           mdxOptions: {

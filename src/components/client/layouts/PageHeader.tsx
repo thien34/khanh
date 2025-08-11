@@ -65,8 +65,8 @@ function PageHeader({ title, description, caption = '', headerImage = null }: Re
         >
           <h1
             className={cn(
-              'text-[2.5rem] leading-tight font-extrabold text-slate-700',
-              'md:text-7xl md:leading-snug',
+              'text-4xl leading-tight font-extrabold text-slate-700',
+              'md:text-5xl md:leading-snug',
               'dark:text-slate-300'
             )}
           >
@@ -80,8 +80,8 @@ function PageHeader({ title, description, caption = '', headerImage = null }: Re
         >
           <p
             className={cn(
-              'mt-4 text-lg text-slate-600',
-              'md:mt-6 md:text-2xl lg:max-w-[500px] xl:max-w-[700px]',
+              'mt-3 text-lg text-slate-600',
+              'md:mt-4 md:text-2xl lg:max-w-[500px] xl:max-w-[700px]',
               'dark:text-slate-400'
             )}
           >
