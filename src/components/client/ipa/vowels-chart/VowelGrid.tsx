@@ -88,19 +88,78 @@ export default function VowelGrid() {
       </svg>
 
       {/* Anatomical labels for mouth cavity */}
-      <div className={cn('absolute top-2 left-16 z-10 text-xs font-medium text-gray-700')}>Front</div>
-      <div className={cn('absolute top-2 right-16 z-10 text-xs font-medium text-gray-700')}>Back</div>
-      <div className={cn('absolute top-2 left-1/2 z-10 -translate-x-1/2 transform text-xs font-medium text-gray-700')}>
+      <div
+        className={cn(
+          'absolute top-2 left-16 z-10 text-xs font-medium text-gray-700',
+          'top-1 sm:top-2 md:top-2',
+          'left-8 sm:left-12 md:left-16',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
+        Front
+      </div>
+
+      <div
+        className={cn(
+          'absolute top-2 right-16 z-10 text-xs font-medium text-gray-700',
+          'top-1 sm:top-2 md:top-2',
+          'right-8 sm:right-12 md:right-16',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
+        Back
+      </div>
+
+      <div
+        className={cn(
+          'absolute top-2 left-1/2 z-10 -translate-x-1/2 transform text-xs font-medium text-gray-700',
+          'top-1 sm:top-2 md:top-2',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
         Central
       </div>
 
       {/* Tongue height and mouth opening labels */}
-      <div className={cn('absolute top-[8.5%] left-2 z-10 transform text-xs font-medium text-gray-700')}>Close</div>
-      <div className={cn('absolute top-[35.5%] left-2 z-10 transform text-xs font-medium text-gray-700')}>
+      <div
+        className={cn(
+          'absolute top-[8.5%] left-2 z-10 transform text-xs font-medium text-gray-700',
+          'left-1 sm:left-1.5 md:left-2',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
+        Close
+      </div>
+
+      <div
+        className={cn(
+          'absolute top-[35.5%] left-2 z-10 transform text-xs font-medium text-gray-700',
+          'left-1 sm:left-1.5 md:left-2',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
         Close-mid
       </div>
-      <div className={cn('absolute top-[62.5%] left-2 z-10 transform text-xs font-medium text-gray-700')}>Open-mid</div>
-      <div className={cn('absolute top-[89.5%] left-2 z-10 transform text-xs font-medium text-gray-700')}>Open</div>
+
+      <div
+        className={cn(
+          'absolute top-[62.5%] left-2 z-10 transform text-xs font-medium text-gray-700',
+          'left-1 sm:left-1.5 md:left-2',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
+        Open-mid
+      </div>
+
+      <div
+        className={cn(
+          'absolute top-[89.5%] left-2 z-10 transform text-xs font-medium text-gray-700',
+          'left-1 sm:left-1.5 md:left-2',
+          'text-[10px] sm:text-xs md:text-xs'
+        )}
+      >
+        Open
+      </div>
     </>
   )
 }

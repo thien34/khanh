@@ -30,14 +30,14 @@ export default function IPAChart() {
         {/* Right: Video & Recording */}
         <div className={cn('space-y-6')}>
           {/* Audio Controls & Recording Panel */}
-          <div className={cn('grid grid-cols-1 gap-4', 'sm:grid-cols-3')}>
-            <div className={cn('sm:col-span-1')}>
+          <div className={cn('grid grid-cols-3 gap-4')}>
+            <div className={cn('col-span-1')}>
               <AudioPlayer
                 accent={accent}
                 onAccentChange={setAccent}
               />
             </div>
-            <div className={cn('sm:col-span-2')}>
+            <div className={cn('col-span-2')}>
               <RecordingPanel selectedSound={selectedSound} />
             </div>
           </div>

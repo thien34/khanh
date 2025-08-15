@@ -31,7 +31,15 @@ export default function VowelTrapezoidal({ sounds, accent, onSoundSelect, select
       />
 
       {/* Trapezoid background */}
-      <div className={cn('relative h-[581px] overflow-hidden rounded-lg border-2 border-gray-300 bg-gray-50')}>
+      <div
+        className={cn(
+          'relative mx-auto w-full max-w-[722px]',
+          'aspect-[1.618/1]',
+          'overflow-hidden rounded-lg border-2 border-gray-300 bg-gray-50',
+          'h-[300px] sm:h-[400px] md:h-[500px] lg:h-[581px]',
+          'min-h-[300px]'
+        )}
+      >
         {/* Grid and labels */}
         <VowelGrid />
 

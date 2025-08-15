@@ -52,7 +52,8 @@ export default function VowelDot({ selectedSound, level, accent, onSoundSelect, 
         key={sound.symbol}
         onClick={() => playSound(sound)}
         className={cn(
-          'absolute flex size-12 cursor-pointer flex-col items-center justify-center gap-0 rounded-full border-2 p-1 transition-all duration-200',
+          'absolute flex cursor-pointer flex-col items-center justify-center gap-0 rounded-full border-2 p-1 transition-all duration-200',
+          'size-6 sm:size-10 md:size-12',
           getCellColor(sound),
           isSelected && 'scale-105 ring-2 ring-blue-500/50 ring-offset-2',
           isCurrentlyPlaying && 'animate-pulse ring-2 ring-green-500/50'
@@ -62,9 +63,12 @@ export default function VowelDot({ selectedSound, level, accent, onSoundSelect, 
           top: `${position.y}%`
         }}
       >
-        <div className={cn('pb-1 text-xl leading-[0.75] font-bold text-gray-700')}>{sound.symbol}</div>
+        <div className={cn('pb-1 !leading-[0.75] font-bold text-gray-700', 'text-sm sm:text-lg md:text-xl')}>
+          {sound.symbol}
+        </div>
+
         {note && (
-          <div className={cn('absolute -top-1 -right-2')}>
+          <div className={cn('absolute -top-1 -right-2 hidden', 'sm:block')}>
             <Tooltip>
               <TooltipTrigger asChild>
                 <div
@@ -85,7 +89,15 @@ export default function VowelDot({ selectedSound, level, accent, onSoundSelect, 
             </Tooltip>
           </div>
         )}
-        <div className={cn('w-full truncate text-center text-xs leading-tight text-gray-600')}>{sound.word}</div>
+
+        <div
+          className={cn(
+            'w-full truncate text-center leading-tight text-gray-600',
+            'text-[9px] sm:text-[10px] md:text-xs'
+          )}
+        >
+          {sound.word}
+        </div>
       </Button>
     )
   })
