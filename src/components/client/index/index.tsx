@@ -1,4 +1,4 @@
-import Header from './Header'
+import Header from './header'
 import CleanIntuitive from './CleanIntuitive'
 import DetailOriented from './DetailOriented'
 import PrettyOptimized from './PrettyOptimized'

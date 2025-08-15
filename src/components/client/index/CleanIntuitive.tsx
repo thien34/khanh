@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { SectionButton } from '../sections/SectionButton'
 import SectionContent from '../sections/SectionContent'
-import TodoItem, { TodoItemState } from './Cards/TodoItem'
+import TodoItem, { TodoItemState } from './cards/TodoItem'
 import SectionTitle from '../sections/SectionTitle'
 import { cn } from '@/lib/utils'
 
