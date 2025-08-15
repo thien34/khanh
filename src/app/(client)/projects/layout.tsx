@@ -15,5 +15,5 @@ export const metadata: Metadata = GenerateMetadata({
 })
 
 export default function Layout({ children }: Readonly<LayoutProps>) {
-  return <div>{children}</div>
+  return <>{children}</>
 }
