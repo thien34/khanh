@@ -18,9 +18,9 @@ export interface IPAData {
 
 export type AccentType = 'uk' | 'us'
 
-export type LearningLevel = 1 | 2
+export type LearningLevel = 1 | 2 | 3
 
-export interface VowelPosition {
+export interface Position {
   x: number
   y: number
 }
@@ -30,8 +30,8 @@ export interface DiphthongData {
   end: string
 }
 
-export interface VowelPositions {
-  [key: string]: VowelPosition
+export interface Positions {
+  [key: string]: Position
 }
 
 export interface Diphthongs {

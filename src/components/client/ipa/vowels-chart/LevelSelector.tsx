@@ -12,7 +12,8 @@ interface LevelSelectorProps {
 export default function LevelSelector({ level, onLevelChange, maxUnlockedLevel }: LevelSelectorProps) {
   const LEVELS: ReadonlyArray<{ id: LearningLevel; title: string; short: string; gradient: string }> = [
     { id: 1, title: 'Monophthongs', short: 'Mono', gradient: 'from-blue-500 to-indigo-500' },
-    { id: 2, title: 'Diphthongs', short: 'Diph', gradient: 'from-emerald-500 to-teal-500' }
+    { id: 2, title: 'Diphthongs', short: 'Diph', gradient: 'from-emerald-500 to-teal-500' },
+    { id: 3, title: 'Consonants', short: 'Cons', gradient: 'from-violet-500 to-purple-500' }
   ]
 
   return (
@@ -60,8 +61,8 @@ export default function LevelSelector({ level, onLevelChange, maxUnlockedLevel }
                     : 'bg-neutral-100 text-neutral-700 dark:bg-neutral-900 dark:text-neutral-300'
                 )}
               >
-                <span className='hidden sm:inline'>{item.title}</span>
-                <span className='inline sm:hidden'>{item.short}</span>
+                <span className={cn('hidden sm:inline')}>{item.title}</span>
+                <span className={cn('inline sm:hidden')}>{item.short}</span>
               </span>
             </button>
           )

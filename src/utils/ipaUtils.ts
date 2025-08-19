@@ -4,8 +4,9 @@ import {
   CENTERING_DIPHTHONGS,
   US_EXCLUDED_MONOPHTHONGS,
   US_EXCLUDED_DIPHTHONGS,
-  LONG_VOWEL_MARK
-} from '../constants/vowel'
+  LONG_VOWEL_MARK,
+  VOICED_CONSONANTS
+} from '../constants/ipa'
 
 function filterByAccent(sounds: IPASound[], accent: AccentType): IPASound[] {
   if (accent !== 'us') return sounds
@@ -88,6 +89,12 @@ export function getCellColor(sound: IPASound): string {
   if (sound.symbol.includes(LONG_VOWEL_MARK)) {
     return 'bg-orange-100/50 hover:bg-orange-200/50 border-orange-300/50'
   }
+  if (sound.category === 'consonant') {
+    if (VOICED_CONSONANTS.includes(sound.symbol)) {
+      return 'bg-red-100/50 hover:bg-red-200/50 border-red-300/50'
+    }
+    return 'bg-blue-100/50 hover:bg-blue-200/50 border-blue-300/50'
+  }
 
   return 'bg-yellow-100/50 hover:bg-yellow-200/50 border-yellow-300/50'
 }
@@ -102,4 +109,11 @@ export function getFilteredDiphthongs(diphthongs: Diphthongs, level: LearningLev
   }
 
   return diphthongs
+}
+
+/**
+ * Filter consonants (all consonants are level 3)
+ */
+export function getFilteredConsonants(sounds: IPASound[]): IPASound[] {
+  return sounds.filter(sound => sound.category === 'consonant')
 }

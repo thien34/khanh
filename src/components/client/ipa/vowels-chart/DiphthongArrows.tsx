@@ -1,10 +1,10 @@
-import { CENTERING_DIPHTHONGS } from '@/constants/vowel'
-import { VowelPosition, DiphthongData } from '@/types/ipa'
+import { CENTERING_DIPHTHONGS } from '@/constants/ipa'
+import { Position, DiphthongData } from '@/types/ipa'
 import { cn } from '@/lib/utils'
 
 interface DiphthongArrowsProps {
   readonly diphthongs: Record<string, DiphthongData>
-  readonly vowelPositions: Record<string, VowelPosition>
+  readonly vowelPositions: Record<string, Position>
   readonly show: boolean
 }
 

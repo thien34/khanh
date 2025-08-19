@@ -191,3 +191,11 @@
 .legend-indicator--centering {
   @apply border-green-300 bg-green-100;
 }
+
+.legend-indicator--voiceless {
+  @apply border-blue-300 bg-blue-100;
+}
+
+.legend-indicator--voiced {
+  @apply border-red-300 bg-red-100;
+}

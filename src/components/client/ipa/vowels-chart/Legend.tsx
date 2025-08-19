@@ -6,7 +6,7 @@ interface LegendProps {
 }
 
 interface LegendItem {
-  readonly indicatorType: 'short' | 'long' | 'closing' | 'centering'
+  readonly indicatorType: 'short' | 'long' | 'closing' | 'centering' | 'voiceless' | 'voiced'
   readonly label: string
 }
 
@@ -20,16 +20,24 @@ function LegendItem({ indicatorType, label }: LegendItem) {
 }
 
 function getLegendItems(level: LearningLevel): LegendItem[] {
-  if (level === 1) {
-    return [
-      { indicatorType: 'short', label: 'Short' },
-      { indicatorType: 'long', label: 'Long' }
-    ]
-  } else {
-    return [
-      { indicatorType: 'closing', label: 'Closing' },
-      { indicatorType: 'centering', label: 'Centering' }
-    ]
+  switch (level) {
+    case 1:
+      return [
+        { indicatorType: 'short', label: 'Short' },
+        { indicatorType: 'long', label: 'Long' }
+      ]
+    case 2:
+      return [
+        { indicatorType: 'closing', label: 'Closing' },
+        { indicatorType: 'centering', label: 'Centering' }
+      ]
+    case 3:
+      return [
+        { indicatorType: 'voiceless', label: 'Voiceless' },
+        { indicatorType: 'voiced', label: 'Voiced' }
+      ]
+    default:
+      return []
   }
 }
 

@@ -1,62 +1,69 @@
 'use client'
 
-import { useState } from 'react'
 import { IPASound, AccentType, LearningLevel } from '@/types/ipa'
-import DiphthongArrows from './DiphthongArrows'
-import LevelSelector from './LevelSelector'
-import Legend from './Legend'
-import VowelGrid from './VowelGrid'
-import { VOWEL_POSITIONS, DIPHTHONGS } from '../../../../constants/vowel'
-import { getFilteredDiphthongs } from '../../../../utils/vowelUtils'
-import VowelDot from './VowelDot'
 import { cn } from '@/lib/utils'
+import VowelGrid from './VowelGrid'
+import ConsonantGrid from './ConsonantGrid'
+import SoundDot from './SoundDot'
+import Legend from './Legend'
+import DiphthongArrows from './DiphthongArrows'
+import { VOWEL_POSITIONS, DIPHTHONGS } from '../../../../constants/ipa'
+import { getFilteredDiphthongs } from '../../../../utils/ipaUtils'
+import { ipaData } from '../data'
 
-interface VowelTrapezoidalProps {
-  readonly sounds: IPASound[]
+interface IPAChartProps {
   readonly accent: AccentType
   readonly onSoundSelect: (sound: IPASound) => void
   readonly selectedSound?: IPASound
+  readonly level: LearningLevel
 }
 
-export default function VowelTrapezoidal({ sounds, accent, onSoundSelect, selectedSound }: VowelTrapezoidalProps) {
-  const [level, setLevel] = useState<LearningLevel>(1)
+export default function UnifiedChart({ accent, onSoundSelect, selectedSound, level }: IPAChartProps) {
+  const isVowelLevel = level <= 2
+
+  const getSoundsForLevel = (level: LearningLevel) => {
+    switch (level) {
+      case 1:
+        return ipaData.vowels.monophthongs
+      case 2:
+        return [...ipaData.vowels.monophthongs, ...ipaData.vowels.diphthongs]
+      case 3:
+        return ipaData.consonants
+      default:
+        return []
+    }
+  }
+
+  const currentSounds = getSoundsForLevel(level)
 
   return (
     <div className={cn('relative mx-auto w-full max-w-4xl')}>
-      {/* Level Selector */}
-      <LevelSelector
-        level={level}
-        onLevelChange={setLevel}
-        maxUnlockedLevel={2}
-      />
-
-      {/* Trapezoid background */}
       <div
         className={cn(
-          'relative mx-auto w-full max-w-[722px]',
-          'aspect-[1.618/1]',
+          'relative mx-auto w-full',
+          isVowelLevel
+            ? 'aspect-[1.618/1] h-[300px] max-w-[722px] sm:h-[400px] md:h-[500px] lg:h-[581px]'
+            : 'aspect-[1.8/1] h-[250px] max-w-[900px] sm:h-[320px] md:h-[400px] lg:h-[450px]',
           'overflow-hidden rounded-lg border-2 border-gray-300 bg-gray-50',
-          'h-[300px] sm:h-[400px] md:h-[500px] lg:h-[581px]',
           'min-h-[300px]'
         )}
       >
-        {/* Grid and labels */}
-        <VowelGrid />
+        {isVowelLevel ? <VowelGrid /> : <ConsonantGrid />}
 
-        {/* Diphthong arrows - kept in main component for better control */}
-        <DiphthongArrows
-          diphthongs={getFilteredDiphthongs(DIPHTHONGS, level, accent)}
-          vowelPositions={VOWEL_POSITIONS}
-          show={level === 2}
-        />
+        {isVowelLevel && (
+          <DiphthongArrows
+            diphthongs={getFilteredDiphthongs(DIPHTHONGS, level, accent)}
+            vowelPositions={VOWEL_POSITIONS}
+            show={level === 2}
+          />
+        )}
 
-        {/* Vowel dots positioned on trapezoid */}
-        <VowelDot
+        <SoundDot
           selectedSound={selectedSound}
           level={level}
           accent={accent}
           onSoundSelect={onSoundSelect}
-          sounds={sounds}
+          sounds={currentSounds}
         />
       </div>
 

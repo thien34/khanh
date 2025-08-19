@@ -109,9 +109,9 @@ const ipaData: IPAData = {
         category: 'monophthong',
         videoUrlUk: 'https://www.youtube-nocookie.com/embed/MAk-XtHsyzM?modestbranding=1&color=white&rel=0',
         audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/12.-gone-1.m4a'
-      },
-
-      // Diphthongs (moving vowel sounds) - placed in monophthongs array for grid layout
+      }
+    ],
+    diphthongs: [
       {
         symbol: 'ɪə',
         word: 'ear',
@@ -176,36 +176,177 @@ const ipaData: IPAData = {
         audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/20.-how-1.m4a',
         audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/aw.mp3'
       }
-    ],
-    diphthongs: []
+    ]
   },
   consonants: [
-    { symbol: 'p', word: 'pen', category: 'consonant' },
-    { symbol: 'b', word: 'book', category: 'consonant' },
-    { symbol: 't', word: 'town', category: 'consonant' },
-    { symbol: 'd', word: 'dog', category: 'consonant' },
-    { symbol: 'tʃ', word: 'church', category: 'consonant' },
-    { symbol: 'dʒ', word: 'jump', category: 'consonant' },
-    { symbol: 'k', word: 'kite', category: 'consonant' },
-    { symbol: 'g', word: 'give', category: 'consonant' },
-
-    { symbol: 'f', word: 'fish', category: 'consonant' },
-    { symbol: 'v', word: 'video', category: 'consonant' },
-    { symbol: 'θ', word: 'thought', category: 'consonant' },
-    { symbol: 'ð', word: 'this', category: 'consonant' },
-    { symbol: 's', word: 'see', category: 'consonant' },
-    { symbol: 'z', word: 'zero', category: 'consonant' },
-    { symbol: 'ʃ', word: 'shall', category: 'consonant' },
-    { symbol: 'ʒ', word: 'measure', category: 'consonant' },
-
-    { symbol: 'm', word: 'man', category: 'consonant' },
-    { symbol: 'n', word: 'now', category: 'consonant' },
-    { symbol: 'ŋ', word: 'sing', category: 'consonant' },
-    { symbol: 'h', word: 'hand', category: 'consonant' },
-    { symbol: 'l', word: 'love', category: 'consonant' },
-    { symbol: 'r', word: 'red', category: 'consonant' },
-    { symbol: 'w', word: 'wet', category: 'consonant' },
-    { symbol: 'j', word: 'yellow', category: 'consonant' }
+    {
+      symbol: 'p',
+      word: 'pig',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/p.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/21.-pen-1.m4a'
+    },
+    {
+      symbol: 'b',
+      word: 'book',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/b.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/29.-bit-1.m4a'
+    },
+    {
+      symbol: 't',
+      word: 'time',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/t.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/23.-tip-1.m4a'
+    },
+    {
+      symbol: 'd',
+      word: 'day',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/d.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/31.-done-1.m4a'
+    },
+    {
+      symbol: 'tʃ',
+      word: 'chair',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/ch.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/25.-chip-1.m4a'
+    },
+    {
+      symbol: 'dʒ',
+      word: 'job',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/jh.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/33.-jam-1.m4a'
+    },
+    {
+      symbol: 'k',
+      word: 'key',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/k.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/28.-cat-1.m4a'
+    },
+    {
+      symbol: 'g',
+      word: 'go',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/g.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/36.-goal-2.m4a'
+    },
+    {
+      symbol: 'f',
+      word: 'fish',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/f.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/22.-fig-1.m4a'
+    },
+    {
+      symbol: 'v',
+      word: 'very',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/v.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/30.-vase-1.m4a'
+    },
+    {
+      symbol: 'θ',
+      word: 'think',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/th.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/24.-thought-1.m4a'
+    },
+    {
+      symbol: 'ð',
+      word: 'then',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/dh.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/32.-those-1.m4a'
+    },
+    {
+      symbol: 's',
+      word: 'see',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/s.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/26.-save-1.m4a'
+    },
+    {
+      symbol: 'z',
+      word: 'zoo',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/z.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/34.-zoo-1.m4a'
+    },
+    {
+      symbol: 'ʃ',
+      word: 'shoe',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/sh.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/27.-sure-1.m4a'
+    },
+    {
+      symbol: 'ʒ',
+      word: 'measure',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/zh.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/35.-vision-1.m4a'
+    },
+    {
+      symbol: 'm',
+      word: 'moon',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/m.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/38.-may-1.m4a'
+    },
+    {
+      symbol: 'n',
+      word: 'nose',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/n.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/39.-not-1.m4a'
+    },
+    {
+      symbol: 'ŋ',
+      word: 'sing',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/ng.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/40.-sing-1.m4a'
+    },
+    {
+      symbol: 'h',
+      word: 'home',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/hh.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/37.-him-1.m4a'
+    },
+    {
+      symbol: 'l',
+      word: 'lion',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/l.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/42-lie-1.m4a'
+    },
+    {
+      symbol: 'r',
+      word: 'red',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/r.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/41.-reach-1.m4a'
+    },
+    {
+      symbol: 'w',
+      word: 'water',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/w.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/43.-will-1.m4a'
+    },
+    {
+      symbol: 'j',
+      word: 'you',
+      category: 'consonant',
+      audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/y.mp3',
+      audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/44.-yet-1.m4a'
+    }
   ]
 }
 

@@ -5,11 +5,11 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { HelpCircle } from 'lucide-react'
-import { getFilteredSounds, getCellColor } from '../../../../utils/vowelUtils'
+import { getFilteredSounds, getCellColor, getFilteredConsonants } from '@/utils/ipaUtils'
 import { useAudioManager } from '@/hooks/useAudioManager'
-import { VOWEL_POSITIONS } from '@/constants/vowel'
+import { VOWEL_POSITIONS, CONSONANT_POSITIONS } from '@/constants/ipa'
 
-interface VowelDotProps {
+interface SoundDotProps {
   readonly selectedSound?: IPASound
   readonly level: LearningLevel
   readonly accent: AccentType
@@ -17,19 +17,26 @@ interface VowelDotProps {
   readonly sounds: IPASound[]
 }
 
-export default function VowelDot({ selectedSound, level, accent, onSoundSelect, sounds }: VowelDotProps) {
+export default function SoundDot({ selectedSound, level, accent, onSoundSelect, sounds }: SoundDotProps) {
   const { playSound, currentSound, isPlaying } = useAudioManager({
     accent,
     onSoundSelect
   })
 
-  const filteredSounds = getFilteredSounds(sounds, level, accent)
+  // Determine if we're showing vowels or consonants
+  const isVowelLevel = level <= 2
+
+  // Filter sounds based on level
+  const filteredSounds = isVowelLevel ? getFilteredSounds(sounds, level, accent) : getFilteredConsonants(sounds)
+
+  // Get positions based on sound type
+  const getPositions = () => (isVowelLevel ? VOWEL_POSITIONS : CONSONANT_POSITIONS)
 
   const getInfoNote = (symbol: string): string => {
     if (symbol === 'e' && level === 1) {
       return 'GA theo IPA là /ɛ/, nhưng nhiều từ điển ghi /e/ để dễ nhận biết.'
     }
-    if (symbol === 'ɔː' && accent === 'us') {
+    if (symbol === 'ɔː' && accent === 'us' && level === 1) {
       return 'Theo GA vẫn có /ɔː/, nhưng ở Mỹ nhiều vùng gộp cot–caught nên /ɔː/ thường gộp vào /ɑː/.'
     }
     if (symbol === 'ɒ') {
@@ -37,9 +44,11 @@ export default function VowelDot({ selectedSound, level, accent, onSoundSelect, 
     }
     return ''
   }
+
+  const positions = getPositions()
+
   return filteredSounds.map(sound => {
-    // Both monophthongs and diphthongs use predefined positions
-    const position = VOWEL_POSITIONS[sound.symbol]
+    const position = positions[sound.symbol]
 
     if (!position) return null
 
