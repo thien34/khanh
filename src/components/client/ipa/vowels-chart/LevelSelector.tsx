@@ -33,7 +33,7 @@ export default function LevelSelector({ level, onLevelChange, maxUnlockedLevel }
               aria-selected={isActive}
               onClick={() => !isLocked && onLevelChange(item.id)}
               className={cn(
-                'group inline-flex snap-start flex-col items-center gap-1 rounded-2xl p-2 text-xs font-medium transition-transform outline-none',
+                'group inline-flex cursor-pointer snap-start flex-col items-center gap-1 rounded-2xl p-2 text-xs font-medium transition-transform outline-none',
                 isLocked && 'pointer-events-none opacity-60',
                 isActive ? 'scale-[1.02]' : 'hover:scale-[1.01]'
               )}

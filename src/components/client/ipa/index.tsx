@@ -8,6 +8,8 @@ import AudioPlayer from './AudioPlayer'
 import LevelSelector from './vowels-chart/LevelSelector'
 import { cn } from '@/lib/utils'
 import UnifiedChart from './vowels-chart'
+import SourcesSection from './SourcesSection'
+import WordExamples from './WordExamples'
 
 export default function IPAChart() {
   const [accent, setAccent] = useState<AccentType>('uk')
@@ -56,8 +58,14 @@ export default function IPAChart() {
             selectedSound={selectedSound}
             accent={accent}
           />
+
+          {/* Word Examples Section */}
+          <WordExamples selectedSound={selectedSound} />
         </div>
       </div>
+
+      {/* Sources Section */}
+      <SourcesSection />
     </div>
   )
 }
