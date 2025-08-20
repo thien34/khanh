@@ -37,7 +37,7 @@ const Nav = ({ navs }: Props) => {
           </DropdownMenuTrigger>
           <DropdownMenuContent
             className={cn(
-              'absolute top-0 -left-11 w-[150px] rounded-xl border border-slate-300 bg-white/70 p-2 backdrop-blur'
+              'absolute top-0 -left-11 z-[1001] w-[150px] rounded-xl border border-slate-300 bg-white/70 p-2 backdrop-blur'
             )}
           >
             {navs

@@ -39,15 +39,19 @@ function BlogFilter({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: 'easeOut' }}
-        className='mb-8 flex flex-col gap-4 rounded-2xl border border-slate-200/50 bg-white/80 p-4 shadow-lg shadow-purple-500/5 backdrop-blur-sm sm:flex-row sm:items-center sm:justify-between dark:border-slate-700/50 dark:bg-slate-800/80'
+        className={cn(
+          'mb-8 flex flex-col gap-4 rounded-2xl border border-slate-200/50 bg-white/80 p-4 shadow-lg shadow-purple-500/5 backdrop-blur-sm',
+          'sm:flex-row sm:items-center sm:justify-between',
+          'dark:border-slate-700/50 dark:bg-slate-800/80'
+        )}
       >
-        <div className='flex items-center gap-4'>
-          <span className='text-sm font-medium text-slate-700 dark:text-slate-300'>
-            <span className='font-bold text-purple-600 dark:text-purple-400'>{postsCount}</span> bài viết
+        <div className={cn('flex items-center gap-4')}>
+          <span className={cn('text-sm font-medium text-slate-700 dark:text-slate-300')}>
+            <span className={cn('font-bold text-purple-600 dark:text-purple-400')}>{postsCount}</span> bài viết
           </span>
         </div>
 
-        <div className='flex items-center gap-3'>
+        <div className={cn('flex items-center gap-3')}>
           <button
             onClick={() => setShowFilters(!showFilters)}
             className={cn(
@@ -62,10 +66,10 @@ function BlogFilter({
             Bộ lọc
           </button>
 
-          <div className='flex items-center gap-2'>
+          <div className={cn('flex items-center gap-2')}>
             <label
               htmlFor='sort-select'
-              className='text-sm font-medium text-slate-700 dark:text-slate-300'
+              className={cn('text-sm font-medium text-slate-700', 'dark:text-slate-300')}
             >
               Sắp xếp:
             </label>
@@ -73,7 +77,11 @@ function BlogFilter({
               id='sort-select'
               value={sortBy}
               onChange={e => setSortBy(e.target.value)}
-              className='cursor-pointer rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:bg-slate-50 focus:ring-2 focus:ring-purple-500/20 focus:outline-none dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
+              className={cn(
+                'cursor-pointer rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-700 transition-colors duration-200',
+                'hover:bg-slate-50 focus:ring-2 focus:ring-purple-500/20 focus:outline-none',
+                'dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700'
+              )}
             >
               {sortOptions.map(option => (
                 <option
@@ -96,10 +104,13 @@ function BlogFilter({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className='mb-6 rounded-2xl border border-slate-200/50 bg-white/80 p-4 shadow-lg shadow-purple-500/5 backdrop-blur-sm dark:border-slate-700/50 dark:bg-slate-800/80'
+            className={cn(
+              'mb-6 rounded-2xl border border-slate-200/50 bg-white/80 p-4 shadow-lg shadow-purple-500/5 backdrop-blur-sm',
+              'dark:border-slate-700/50 dark:bg-slate-800/80'
+            )}
           >
-            <h4 className='mb-3 text-sm font-bold text-slate-900 dark:text-slate-100'>Lọc theo tags</h4>
-            <div className='flex flex-wrap gap-2'>
+            <h4 className={cn('mb-3 text-sm font-bold text-slate-900', 'dark:text-slate-100')}>Lọc theo tags</h4>
+            <div className={cn('flex flex-wrap gap-2')}>
               <button
                 onClick={() => setFilterBy('all')}
                 className={cn(
