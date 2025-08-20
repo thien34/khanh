@@ -183,6 +183,8 @@ const ipaData: IPAData = {
       symbol: 'p',
       word: 'pig',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/AZRREr7DqqM?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/JPUr5MgeDHM?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/p.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/21.-pen-1.m4a'
     },
@@ -190,6 +192,8 @@ const ipaData: IPAData = {
       symbol: 'b',
       word: 'book',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/yP7aCKO6bTE?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/JPUr5MgeDHM?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/b.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/29.-bit-1.m4a'
     },
@@ -197,6 +201,8 @@ const ipaData: IPAData = {
       symbol: 't',
       word: 'time',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/0T1QYByMxrs?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/hGZ9GwrNWmU?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/t.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/23.-tip-1.m4a'
     },
@@ -204,6 +210,8 @@ const ipaData: IPAData = {
       symbol: 'd',
       word: 'day',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/qA5ZYC89oso?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/hGZ9GwrNWmU?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/d.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/31.-done-1.m4a'
     },
@@ -211,6 +219,8 @@ const ipaData: IPAData = {
       symbol: 'tʃ',
       word: 'chair',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/PykxZ5kkrjs?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/aqHebuRjO0k?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/ch.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/25.-chip-1.m4a'
     },
@@ -218,6 +228,8 @@ const ipaData: IPAData = {
       symbol: 'dʒ',
       word: 'job',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/0IeQmGdo7gQ?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/aqHebuRjO0k?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/jh.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/33.-jam-1.m4a'
     },
@@ -225,6 +237,8 @@ const ipaData: IPAData = {
       symbol: 'k',
       word: 'key',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/d1jyIpAmLe8?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/O_NisgL1dvY?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/k.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/28.-cat-1.m4a'
     },
@@ -232,6 +246,8 @@ const ipaData: IPAData = {
       symbol: 'g',
       word: 'go',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/9eAqj9EfeK0?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/O_NisgL1dvY?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/g.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/36.-goal-2.m4a'
     },
@@ -239,6 +255,8 @@ const ipaData: IPAData = {
       symbol: 'f',
       word: 'fish',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/vE12RFyH-hY?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/nR-K3mrHFv0?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/f.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/22.-fig-1.m4a'
     },
@@ -246,6 +264,8 @@ const ipaData: IPAData = {
       symbol: 'v',
       word: 'very',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/mO04G0v5a_c?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/nR-K3mrHFv0?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/v.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/30.-vase-1.m4a'
     },
@@ -253,6 +273,8 @@ const ipaData: IPAData = {
       symbol: 'θ',
       word: 'think',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/b4Aj3k65HSo?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/nlKNo1TGALA?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/th.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/24.-thought-1.m4a'
     },
@@ -260,6 +282,8 @@ const ipaData: IPAData = {
       symbol: 'ð',
       word: 'then',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/tu1t3Fn5Lw8?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/nlKNo1TGALA?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/dh.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/32.-those-1.m4a'
     },
@@ -267,6 +291,8 @@ const ipaData: IPAData = {
       symbol: 's',
       word: 'see',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/QtH3vRXmvvo?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/xl-7mSeybmI?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/s.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/26.-save-1.m4a'
     },
@@ -274,6 +300,8 @@ const ipaData: IPAData = {
       symbol: 'z',
       word: 'zoo',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/o1ZvmX80t7Q?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/xl-7mSeybmI?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/z.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/34.-zoo-1.m4a'
     },
@@ -281,6 +309,8 @@ const ipaData: IPAData = {
       symbol: 'ʃ',
       word: 'shoe',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/NF92RdZC6wE?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/RxaLKZPPEvY?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/sh.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/27.-sure-1.m4a'
     },
@@ -288,6 +318,8 @@ const ipaData: IPAData = {
       symbol: 'ʒ',
       word: 'measure',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/bTxeAiBF61I?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/RxaLKZPPEvY?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/zh.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/35.-vision-1.m4a'
     },
@@ -295,6 +327,8 @@ const ipaData: IPAData = {
       symbol: 'm',
       word: 'moon',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/0Te4Us8Tsv8?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/CoEh8cz-mS4?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/m.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/38.-may-1.m4a'
     },
@@ -302,6 +336,8 @@ const ipaData: IPAData = {
       symbol: 'n',
       word: 'nose',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/qkgucMjv4T0?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/HeMzjC672OA?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/n.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/39.-not-1.m4a'
     },
@@ -309,6 +345,8 @@ const ipaData: IPAData = {
       symbol: 'ŋ',
       word: 'sing',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/rgWse3tloTw?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/6ESY7ueSfrc?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/ng.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/40.-sing-1.m4a'
     },
@@ -316,6 +354,8 @@ const ipaData: IPAData = {
       symbol: 'h',
       word: 'home',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/DM_gN6imoC8?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/uOG-4ZjR7ic?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/hh.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/37.-him-1.m4a'
     },
@@ -323,6 +363,8 @@ const ipaData: IPAData = {
       symbol: 'l',
       word: 'lion',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/CwWLgmMk0Z0?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/FP0jHNoFqWo?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/l.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/42-lie-1.m4a'
     },
@@ -330,6 +372,8 @@ const ipaData: IPAData = {
       symbol: 'r',
       word: 'red',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/Lxuo14hjP_8?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/G_OQjKLvt0E?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/r.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/41.-reach-1.m4a'
     },
@@ -337,6 +381,8 @@ const ipaData: IPAData = {
       symbol: 'w',
       word: 'water',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/HzhPB1hXG-o?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/RW94L6606DE?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/w.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/43.-will-1.m4a'
     },
@@ -344,6 +390,8 @@ const ipaData: IPAData = {
       symbol: 'j',
       word: 'you',
       category: 'consonant',
+      videoUrlUk: 'https://www.youtube-nocookie.com/embed/_Fi9E6Yw-qg?modestbranding=1&color=white&rel=0',
+      videoUrlUs: 'https://www.youtube-nocookie.com/embed/1Yo4BHIIBP8?start=15&modestbranding=1&color=white&rel=0',
       audioUrlUs: 'https://alphabets-resources.duolingo.com/audio/pronunciation/y.mp3',
       audioUrlUk: 'https://englishwithlucy.com/wp-content/uploads/2020/10/44.-yet-1.m4a'
     }
