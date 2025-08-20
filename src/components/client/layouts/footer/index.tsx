@@ -24,11 +24,6 @@ const Footer = () => {
                   { title: 'Contact', href: '/work/contact' },
                   { title: 'Experience', href: '/work/experience' },
                   {
-                    title: 'Services',
-                    href: '/work/services',
-                    label: 'soon'
-                  },
-                  {
                     title: 'Skills and Tools',
                     href: '/work/skills-and-tools'
                   }
@@ -44,6 +39,16 @@ const Footer = () => {
                   {
                     title: 'Blog',
                     href: '/blog',
+                    label: 'new'
+                  }
+                ]}
+              />
+              <FooterGroup
+                title='Services'
+                links={[
+                  {
+                    title: 'IPA Tool',
+                    href: '/ipa',
                     label: 'new'
                   }
                 ]}
