@@ -1,0 +1,193 @@
+.countdown {
+  @apply mt-32 flex items-center justify-center gap-10 overflow-hidden py-5;
+}
+
+.flip-card {
+  @apply relative size-[400px] rounded-xl shadow-lg shadow-black/30;
+}
+
+.flip-card > span {
+  @apply text-[18em] leading-[400px] font-bold text-[#b9b9b9];
+  @apply absolute right-0 left-0 flex h-1/2 justify-center overflow-hidden bg-[#0f0f0f];
+}
+
+.topIn::before,
+.top::before {
+  @apply absolute right-0 bottom-0 left-0 z-1 w-full border-b-2 border-black content-[''];
+}
+
+.bottomOut::before,
+.bottom::before {
+  @apply absolute top-0 right-0 left-0 z-1 w-full border-t-4 border-black content-[''];
+}
+
+.top::after,
+.bottom::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(0);
+  will-change: opacity, transform;
+}
+
+.top::after {
+  top: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  transition: opacity 0.2s ease-in;
+}
+
+.bottom::after {
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 15%,
+    rgba(0, 0, 0, 0.9) 30%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  transition: opacity 0.2s ease-in;
+}
+
+.topIn::after,
+.bottomOut::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.topIn::after {
+  top: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.3) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.flip .top::after {
+  animation: staticTopShadow 900ms ease-in both;
+}
+
+.flip .bottom::after {
+  animation: staticBottomShadow 900ms ease-in both;
+}
+
+.flip .topIn::after {
+  animation: dynamicTopShadow 900ms ease-in both;
+}
+
+@keyframes staticTopShadow {
+  0% {
+    opacity: 0.3;
+  }
+  65% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes staticBottomShadow {
+  0% {
+    opacity: 0;
+  }
+  49% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes dynamicTopShadow {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+.top {
+  @apply top-0 z-1 items-start rounded-t-xl;
+}
+
+.bottom {
+  @apply bottom-0 z-1 items-end rounded-b-xl;
+}
+
+.topIn {
+  @apply top-0 z-2 origin-bottom items-start rounded-t-xl;
+}
+
+.bottomOut {
+  @apply bottom-0 z-2 origin-top items-end rounded-b-xl;
+}
+
+.topIn,
+.bottomOut {
+  @apply will-change-transform [backface-visibility:hidden] [transform-style:preserve-3d];
+}
+
+/* ===== Flip Animation (pure CSS) ===== */
+@keyframes topFlip {
+  0% {
+    transform: perspective(1600px) rotateX(0);
+  }
+  100% {
+    transform: perspective(1600px) rotateX(-180deg);
+  }
+}
+
+@keyframes bottomFlip {
+  0% {
+    transform: perspective(1600px) rotateX(180deg);
+  }
+  100% {
+    transform: perspective(1600px) rotateX(0);
+  }
+}
+
+.flip .topIn {
+  animation: topFlip 900ms ease-in forwards;
+}
+.flip .bottomOut {
+  animation: bottomFlip 900ms ease-in forwards;
+}

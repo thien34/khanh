@@ -50,6 +50,11 @@ const Footer = () => {
                     title: 'IPA Tool',
                     href: '/ipa',
                     label: 'new'
+                  },
+                  {
+                    title: 'Flip Clock',
+                    href: '/clock',
+                    label: 'new'
                   }
                 ]}
               />
