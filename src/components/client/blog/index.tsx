@@ -33,8 +33,8 @@ function BlogContents({ posts }: Readonly<BlogContentsProps>) {
         verified: author.isVerified
       },
       readTime,
-      views: Math.floor(Math.random() * 7950) + 50,
-      upvotes: Math.floor(Math.random() * 500) + 10,
+      views: 100,
+      upvotes: 23,
       tags: tags.map(tag => tag.name)
     }
 

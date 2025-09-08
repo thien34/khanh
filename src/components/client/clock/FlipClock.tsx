@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { format } from 'date-fns'
+import { cn } from '@/lib/utils'
 
 interface TimeState {
   hours: string
@@ -37,20 +38,24 @@ function FlipCard({ value }: Readonly<{ value: string }>) {
   }, [value, displayValue])
 
   return (
-    <div className={`flip-card ${isFlipping ? 'flip' : ''}`}>
+    <div className={cn('flip-card', isFlipping ? 'flip' : '')}>
       {/* Back faces that will be revealed during flip */}
-      <span className='top'>{value}</span>
-      <span className='bottom'>{displayValue}</span>
+      <span className={cn('top')}>{value}</span>
+      <span className={cn('bottom')}>{displayValue}</span>
 
       {/* Animated faces */}
-      <span className='topIn'>{displayValue}</span>
-      <span className='bottomOut'>{value}</span>
+      <span className={cn('topIn')}>{displayValue}</span>
+      <span className={cn('bottomOut')}>{value}</span>
     </div>
   )
 }
 
 export default function FlipClock() {
-  const [time, setTime] = useState<TimeState>(() => getCurrentTime())
+  const [time, setTime] = useState<TimeState>({
+    hours: '00',
+    minutes: '00',
+    seconds: '00'
+  })
 
   useEffect(() => {
     const updateTime = () => setTime(getCurrentTime())
@@ -71,7 +76,7 @@ export default function FlipClock() {
   }, [])
 
   return (
-    <div className='countdown'>
+    <div className={cn('countdown')}>
       <FlipCard value={time.hours} />
       <FlipCard value={time.minutes} />
       <FlipCard value={time.seconds} />

@@ -1,5 +1,5 @@
 .countdown {
-  @apply mt-32 flex items-center justify-center gap-10 overflow-hidden py-5;
+  @apply flex h-screen items-center justify-center gap-10 overflow-hidden bg-black py-5;
 }
 
 .flip-card {
@@ -83,15 +83,15 @@
 }
 
 .flip .top::after {
-  animation: staticTopShadow 900ms ease-in both;
+  animation: staticTopShadow 950ms ease-in both;
 }
 
 .flip .bottom::after {
-  animation: staticBottomShadow 900ms ease-in both;
+  animation: staticBottomShadow 950ms ease-in both;
 }
 
 .flip .topIn::after {
-  animation: dynamicTopShadow 900ms ease-in both;
+  animation: dynamicTopShadow 950ms ease-in both;
 }
 
 @keyframes staticTopShadow {
@@ -186,8 +186,12 @@
 }
 
 .flip .topIn {
-  animation: topFlip 900ms ease-in forwards;
+  animation: topFlip 950ms ease-in forwards;
 }
 .flip .bottomOut {
-  animation: bottomFlip 900ms ease-in forwards;
+  animation: bottomFlip 950ms ease-in forwards;
+}
+
+.menu-item {
+  @apply flex items-center justify-center rounded-lg p-3 hover:bg-white/10 focus:bg-white/10;
 }
