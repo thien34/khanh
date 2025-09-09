@@ -1,11 +1,5 @@
-import FlipClock from '@/components/client/clock/FlipClock'
-import ClockMenu from '@/components/client/clock/ClockMenu'
+import Clock from '@/components/client/clock'
 
 export default function ClockPage() {
-  return (
-    <>
-      <FlipClock />
-      <ClockMenu />
-    </>
-  )
+  return <Clock />
 }

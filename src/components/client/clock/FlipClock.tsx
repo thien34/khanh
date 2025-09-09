@@ -8,18 +8,27 @@ interface TimeState {
   hours: string
   minutes: string
   seconds: string
+  period: string
 }
 
-function getCurrentTime(): TimeState {
+interface FlipClockProps {
+  showHours: boolean
+  showMinutes: boolean
+  showSeconds: boolean
+  is24Hour: boolean
+}
+
+function getCurrentTime(is24Hour: boolean): TimeState {
   const now = new Date()
   return {
-    hours: format(now, 'HH'),
+    hours: format(now, is24Hour ? 'H' : 'h'),
     minutes: format(now, 'mm'),
-    seconds: format(now, 'ss')
+    seconds: format(now, 'ss'),
+    period: is24Hour ? '' : format(now, 'a')
   }
 }
 
-function FlipCard({ value }: Readonly<{ value: string }>) {
+function FlipCard({ value, period }: Readonly<{ value: string; period?: string }>) {
   const [displayValue, setDisplayValue] = useState(value)
   const [isFlipping, setIsFlipping] = useState(false)
 
@@ -46,19 +55,23 @@ function FlipCard({ value }: Readonly<{ value: string }>) {
       {/* Animated faces */}
       <span className={cn('topIn')}>{displayValue}</span>
       <span className={cn('bottomOut')}>{value}</span>
+
+      {/* AM/PM indicator for 12-hour format */}
+      {period && <div className='absolute bottom-16 left-3 z-10 text-4xl font-bold text-[#b9b9b9]'>{period}</div>}
     </div>
   )
 }
 
-export default function FlipClock() {
+export default function FlipClock({ showHours, showMinutes, showSeconds, is24Hour }: Readonly<FlipClockProps>) {
   const [time, setTime] = useState<TimeState>({
     hours: '00',
     minutes: '00',
-    seconds: '00'
+    seconds: '00',
+    period: 'AM'
   })
 
   useEffect(() => {
-    const updateTime = () => setTime(getCurrentTime())
+    const updateTime = () => setTime(getCurrentTime(is24Hour))
 
     const msUntilNextSecond = 1000 - (Date.now() % 1000)
 
@@ -73,13 +86,18 @@ export default function FlipClock() {
       clearTimeout(alignTimer)
       clearInterval(interval)
     }
-  }, [])
+  }, [is24Hour])
 
   return (
     <div className={cn('countdown')}>
-      <FlipCard value={time.hours} />
-      <FlipCard value={time.minutes} />
-      <FlipCard value={time.seconds} />
+      {showHours && (
+        <FlipCard
+          value={time.hours}
+          period={time.period}
+        />
+      )}
+      {showMinutes && <FlipCard value={time.minutes} />}
+      {showSeconds && <FlipCard value={time.seconds} />}
     </div>
   )
 }

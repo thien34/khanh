@@ -10,9 +10,21 @@ import {
 import { Button } from '@/components/ui/button'
 import { Slider } from '@/components/ui/slider'
 import { MoreVertical, Settings, Palette, Bell, Timer, Volume2, Maximize, Minimize } from 'lucide-react'
-import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { useFullscreen } from '@/hooks/useFullscreen'
+
+interface ClockMenuProps {
+  is24Hour: boolean
+  setIs24Hour: (value: boolean) => void
+  showHours: boolean
+  setShowHours: (value: boolean | ((prev: boolean) => boolean)) => void
+  showMinutes: boolean
+  setShowMinutes: (value: boolean | ((prev: boolean) => boolean)) => void
+  showSeconds: boolean
+  setShowSeconds: (value: boolean | ((prev: boolean) => boolean)) => void
+  sliderValue: number[]
+  setSliderValue: (value: number[]) => void
+}
 
 function TogglePill({
   active,
@@ -40,12 +52,18 @@ function TogglePill({
   )
 }
 
-export default function ClockMenu() {
-  const [is24Hour, setIs24Hour] = useState(true)
-  const [showHours, setShowHours] = useState(true)
-  const [showMinutes, setShowMinutes] = useState(true)
-  const [showSeconds, setShowSeconds] = useState(true)
-  const [sliderValue, setSliderValue] = useState([75])
+export default function ClockMenu({
+  is24Hour,
+  setIs24Hour,
+  showHours,
+  setShowHours,
+  showMinutes,
+  setShowMinutes,
+  showSeconds,
+  setShowSeconds,
+  sliderValue,
+  setSliderValue
+}: Readonly<ClockMenuProps>) {
   const { isFullscreen, toggle } = useFullscreen()
 
   return (
