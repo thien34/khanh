@@ -9,9 +9,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { Slider } from '@/components/ui/slider'
-import { MoreVertical, Settings, Palette, Bell, Timer, Volume2, Maximize } from 'lucide-react'
+import { MoreVertical, Settings, Palette, Bell, Timer, Volume2, Maximize, Minimize } from 'lucide-react'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
+import { useFullscreen } from '@/hooks/useFullscreen'
 
 function TogglePill({
   active,
@@ -45,6 +46,7 @@ export default function ClockMenu() {
   const [showMinutes, setShowMinutes] = useState(true)
   const [showSeconds, setShowSeconds] = useState(true)
   const [sliderValue, setSliderValue] = useState([75])
+  const { isFullscreen, toggle } = useFullscreen()
 
   return (
     <div className={cn('fixed right-4 bottom-4 z-50')}>
@@ -142,8 +144,11 @@ export default function ClockMenu() {
             <DropdownMenuItem className='menu-item'>
               <Volume2 className='size-5' />
             </DropdownMenuItem>
-            <DropdownMenuItem className='menu-item'>
-              <Maximize className='size-5' />
+            <DropdownMenuItem
+              className='menu-item'
+              onClick={toggle}
+            >
+              {isFullscreen ? <Minimize className='size-5' /> : <Maximize className='size-5' />}
             </DropdownMenuItem>
           </div>
         </DropdownMenuContent>
