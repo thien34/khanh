@@ -1,14 +1,40 @@
+.wrap {
+  @apply h-screen w-screen overflow-hidden bg-black;
+}
+
 .countdown {
-  @apply flex h-screen items-center justify-center gap-10 overflow-hidden bg-black py-5;
+  @apply flex h-screen items-center justify-center gap-10 py-5;
+  transform: scale(var(--clock-scale, 1));
+  transform-origin: center;
+  will-change: transform;
+}
+
+.countdown.font-bebas-neue {
+  --clock-font: var(--font-bebas-neue);
+}
+
+.countdown.font-orbitron {
+  --clock-font: var(--font-orbitron);
+}
+
+.countdown.font-oswald {
+  --clock-font: var(--font-oswald);
+}
+
+.countdown.font-montserrat-alternates {
+  --clock-font: var(--font-montserrat-alternates);
 }
 
 .flip-card {
-  @apply relative size-[400px] rounded-xl shadow-lg shadow-black/30;
+  @apply relative size-[630px] rounded-4xl shadow-lg shadow-black/30 select-none;
+  @apply transition-all duration-300 hover:scale-105;
+  @apply shrink-0;
 }
 
 .flip-card > span {
-  @apply text-[18em] leading-[400px] font-bold text-[#b9b9b9];
+  @apply text-[28em] leading-[630px] font-bold text-[#b9b9b9];
   @apply absolute right-0 left-0 flex h-1/2 justify-center overflow-hidden bg-[#0f0f0f];
+  font-family: var(--clock-font);
 }
 
 .topIn::before,
@@ -146,19 +172,19 @@
 }
 
 .top {
-  @apply top-0 z-1 items-start rounded-t-xl;
+  @apply top-0 z-1 items-start rounded-t-4xl;
 }
 
 .bottom {
-  @apply bottom-0 z-1 items-end rounded-b-xl;
+  @apply bottom-0 z-1 items-end rounded-b-4xl;
 }
 
 .topIn {
-  @apply top-0 z-2 origin-bottom items-start rounded-t-xl;
+  @apply top-0 z-2 origin-bottom items-start rounded-t-4xl;
 }
 
 .bottomOut {
-  @apply bottom-0 z-2 origin-top items-end rounded-b-xl;
+  @apply bottom-0 z-2 origin-top items-end rounded-b-4xl;
 }
 
 .topIn,
@@ -193,5 +219,6 @@
 }
 
 .menu-item {
-  @apply flex items-center justify-center rounded-lg p-3 hover:bg-white/10 focus:bg-white/10;
+  @apply flex items-center justify-center rounded-lg p-3;
+  @apply hover:bg-white/10 hover:text-white focus:bg-white/10;
 }

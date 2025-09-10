@@ -13,6 +13,11 @@ import { MoreVertical, Settings, Palette, Bell, Timer, Volume2, Maximize, Minimi
 import { cn } from '@/lib/utils'
 import { useFullscreen } from '@/hooks/useFullscreen'
 
+interface FontOption {
+  label: string
+  cssClass: string
+}
+
 interface ClockMenuProps {
   is24Hour: boolean
   setIs24Hour: (value: boolean) => void
@@ -24,6 +29,9 @@ interface ClockMenuProps {
   setShowSeconds: (value: boolean | ((prev: boolean) => boolean)) => void
   sliderValue: number[]
   setSliderValue: (value: number[]) => void
+  fontOptions: FontOption[]
+  selectedFont: string
+  onFontChange: (value: string) => void
 }
 
 function TogglePill({
@@ -62,7 +70,10 @@ export default function ClockMenu({
   showSeconds,
   setShowSeconds,
   sliderValue,
-  setSliderValue
+  setSliderValue,
+  fontOptions,
+  selectedFont,
+  onFontChange
 }: Readonly<ClockMenuProps>) {
   const { isFullscreen, toggle } = useFullscreen()
 
@@ -91,8 +102,9 @@ export default function ClockMenu({
           <Slider
             value={sliderValue}
             onValueChange={setSliderValue}
-            max={100}
-            step={1}
+            min={30}
+            max={150}
+            step={2}
             className={cn('w-full')}
           />
 
@@ -136,6 +148,28 @@ export default function ClockMenu({
               onClick={() => setShowSeconds(v => !v)}
               label='SS'
             />
+          </div>
+
+          <DropdownMenuSeparator className={cn('bg-white/20')} />
+
+          {/* Font selection */}
+          <div className='grid grid-cols-1 gap-1'>
+            {fontOptions.map(font => (
+              <Button
+                key={font.cssClass}
+                variant='ghost'
+                size='sm'
+                onClick={() => onFontChange(font.cssClass)}
+                className={cn(
+                  'h-auto justify-start px-2 py-1 text-xs duration-300',
+                  selectedFont === font.cssClass
+                    ? 'bg-white/20 text-white hover:bg-white/25 hover:text-white'
+                    : 'bg-transparent text-white/60 hover:bg-white/10 hover:text-white/80'
+                )}
+              >
+                {font.label}
+              </Button>
+            ))}
           </div>
 
           <DropdownMenuSeparator className={cn('bg-white/20')} />

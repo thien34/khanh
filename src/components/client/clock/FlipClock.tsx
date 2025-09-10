@@ -16,6 +16,8 @@ interface FlipClockProps {
   showMinutes: boolean
   showSeconds: boolean
   is24Hour: boolean
+  fontClass?: string
+  scale: number
 }
 
 function getCurrentTime(is24Hour: boolean): TimeState {
@@ -57,12 +59,19 @@ function FlipCard({ value, period }: Readonly<{ value: string; period?: string }
       <span className={cn('bottomOut')}>{value}</span>
 
       {/* AM/PM indicator for 12-hour format */}
-      {period && <div className='absolute bottom-16 left-3 z-10 text-4xl font-bold text-[#b9b9b9]'>{period}</div>}
+      {period && <div className='absolute bottom-24 left-11 z-10 text-5xl font-bold text-[#b9b9b9]'>{period}</div>}
     </div>
   )
 }
 
-export default function FlipClock({ showHours, showMinutes, showSeconds, is24Hour }: Readonly<FlipClockProps>) {
+export default function FlipClock({
+  showHours,
+  showMinutes,
+  showSeconds,
+  is24Hour,
+  fontClass,
+  scale
+}: Readonly<FlipClockProps>) {
   const [time, setTime] = useState<TimeState>({
     hours: '00',
     minutes: '00',
@@ -89,15 +98,20 @@ export default function FlipClock({ showHours, showMinutes, showSeconds, is24Hou
   }, [is24Hour])
 
   return (
-    <div className={cn('countdown')}>
-      {showHours && (
-        <FlipCard
-          value={time.hours}
-          period={time.period}
-        />
-      )}
-      {showMinutes && <FlipCard value={time.minutes} />}
-      {showSeconds && <FlipCard value={time.seconds} />}
+    <div className='wrap'>
+      <div
+        className={cn('countdown', fontClass)}
+        style={{ '--clock-scale': scale } as React.CSSProperties}
+      >
+        {showHours && (
+          <FlipCard
+            value={time.hours}
+            period={time.period}
+          />
+        )}
+        {showMinutes && <FlipCard value={time.minutes} />}
+        {showSeconds && <FlipCard value={time.seconds} />}
+      </div>
     </div>
   )
 }
