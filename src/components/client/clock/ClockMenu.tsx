@@ -98,7 +98,10 @@ export default function ClockMenu({
         <DropdownMenuContent
           align='end'
           side='top'
-          className={cn('w-32 space-y-3 border border-white/20 bg-black/80 p-3 text-white backdrop-blur-md')}
+          className={cn(
+            'w-32 space-y-3 border border-white/20 bg-black/80 p-3 text-white backdrop-blur-md',
+            'transition-transform duration-300 portrait:rotate-0 max-[1024px]:landscape:mb-4 max-[1024px]:landscape:origin-bottom max-[1024px]:landscape:-rotate-90'
+          )}
         >
           {/* Interactive slider */}
           <Slider
