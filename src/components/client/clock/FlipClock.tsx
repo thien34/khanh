@@ -18,6 +18,7 @@ interface FlipClockProps {
   is24Hour: boolean
   fontClass?: string
   scale: number
+  isVertical: boolean
 }
 
 function getCurrentTime(is24Hour: boolean): TimeState {
@@ -72,7 +73,8 @@ export default function FlipClock({
   showSeconds,
   is24Hour,
   fontClass,
-  scale
+  scale,
+  isVertical
 }: Readonly<FlipClockProps>) {
   const [time, setTime] = useState<TimeState>({
     hours: '00',
@@ -102,7 +104,7 @@ export default function FlipClock({
   return (
     <div className='wrap'>
       <div
-        className={cn('countdown', fontClass)}
+        className={cn('countdown', fontClass, isVertical ? 'flex-col' : 'flex-row')}
         style={{ '--clock-scale': scale } as React.CSSProperties}
       >
         {showHours && (

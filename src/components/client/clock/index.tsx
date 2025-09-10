@@ -18,6 +18,7 @@ export default function Clock() {
   const [showSeconds, setShowSeconds] = useState(false)
   const [sliderValue, setSliderValue] = useState([100])
   const [selectedFont, setSelectedFont] = useState('font-bebas-neue')
+  const [isVertical, setIsVertical] = useState(false)
 
   // Load preferences from localStorage
   useEffect(() => {
@@ -53,6 +54,11 @@ export default function Clock() {
     if (savedShowSeconds !== null) {
       setShowSeconds(savedShowSeconds === 'true')
     }
+
+    const savedVertical = localStorage.getItem('clock-vertical')
+    if (savedVertical !== null) {
+      setIsVertical(savedVertical === 'true')
+    }
   }, [])
 
   // Save font preference to localStorage
@@ -83,6 +89,10 @@ export default function Clock() {
     localStorage.setItem('clock-showSeconds', showSeconds.toString())
   }, [showSeconds])
 
+  useEffect(() => {
+    localStorage.setItem('clock-vertical', isVertical.toString())
+  }, [isVertical])
+
   // Reset function to clear all localStorage and reset to defaults
   const handleReset = () => {
     // Clear all localStorage items
@@ -92,6 +102,7 @@ export default function Clock() {
     localStorage.removeItem('clock-showHours')
     localStorage.removeItem('clock-showMinutes')
     localStorage.removeItem('clock-showSeconds')
+    localStorage.removeItem('clock-vertical')
 
     // Reset all state to default values
     setSelectedFont('font-bebas-neue')
@@ -100,6 +111,7 @@ export default function Clock() {
     setShowHours(true)
     setShowMinutes(true)
     setShowSeconds(false)
+    setIsVertical(false)
   }
 
   const currentFont = FONT_OPTIONS.find(font => font.cssClass === selectedFont) || FONT_OPTIONS[0]
@@ -114,6 +126,7 @@ export default function Clock() {
         is24Hour={is24Hour}
         fontClass={currentFont.cssClass}
         scale={scale}
+        isVertical={isVertical}
       />
       <ClockMenu
         is24Hour={is24Hour}
@@ -130,6 +143,8 @@ export default function Clock() {
         selectedFont={selectedFont}
         onFontChange={setSelectedFont}
         onReset={handleReset}
+        isVertical={isVertical}
+        setIsVertical={setIsVertical}
       />
     </>
   )
