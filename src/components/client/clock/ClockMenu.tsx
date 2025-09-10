@@ -55,7 +55,7 @@ function TogglePill({
           : 'bg-transparent text-white/40 hover:bg-white/5 hover:text-white/60'
       )}
     >
-      <span className='text-xs font-bold'>{label}</span>
+      <span className={cn('text-xs font-bold')}>{label}</span>
     </Button>
   )
 }
@@ -177,30 +177,30 @@ export default function ClockMenu({
           {/* Icon grid - 2 columns */}
           <div className={cn('grid grid-cols-2 gap-2')}>
             {/* Row 1 */}
-            <DropdownMenuItem className='menu-item'>
-              <Settings className='size-5' />
+            <DropdownMenuItem className={cn('menu-item')}>
+              <Settings className={cn('size-5')} />
             </DropdownMenuItem>
-            <DropdownMenuItem className='menu-item'>
-              <Palette className='size-5' />
+            <DropdownMenuItem className={cn('menu-item')}>
+              <Palette className={cn('size-5')} />
             </DropdownMenuItem>
 
             {/* Row 2 */}
-            <DropdownMenuItem className='menu-item'>
-              <Bell className='size-5' />
+            <DropdownMenuItem className={cn('menu-item')}>
+              <Bell className={cn('size-5')} />
             </DropdownMenuItem>
-            <DropdownMenuItem className='menu-item'>
-              <Timer className='size-5' />
+            <DropdownMenuItem className={cn('menu-item')}>
+              <Timer className={cn('size-5')} />
             </DropdownMenuItem>
 
             {/* Row 3 */}
-            <DropdownMenuItem className='menu-item'>
-              <Volume2 className='size-5' />
+            <DropdownMenuItem className={cn('menu-item')}>
+              <Volume2 className={cn('size-5')} />
             </DropdownMenuItem>
             <DropdownMenuItem
-              className='menu-item'
+              className={cn('menu-item')}
               onClick={toggle}
             >
-              {isFullscreen ? <Minimize className='size-5' /> : <Maximize className='size-5' />}
+              {isFullscreen ? <Minimize className={cn('size-5')} /> : <Maximize className={cn('size-5')} />}
             </DropdownMenuItem>
           </div>
         </DropdownMenuContent>

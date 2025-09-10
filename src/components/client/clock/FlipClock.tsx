@@ -59,7 +59,9 @@ function FlipCard({ value, period }: Readonly<{ value: string; period?: string }
       <span className={cn('bottomOut')}>{value}</span>
 
       {/* AM/PM indicator for 12-hour format */}
-      {period && <div className='absolute bottom-24 left-11 z-10 text-5xl font-bold text-[#b9b9b9]'>{period}</div>}
+      {period && (
+        <div className={cn('absolute bottom-24 left-11 z-10 text-5xl font-bold text-[#b9b9b9]')}>{period}</div>
+      )}
     </div>
   )
 }
