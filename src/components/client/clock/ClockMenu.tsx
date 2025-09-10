@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui/button'
 import { Slider } from '@/components/ui/slider'
-import { MoreVertical, Settings, Palette, Bell, Timer, Volume2, Maximize, Minimize } from 'lucide-react'
+import { MoreVertical, Settings, Palette, Timer, Volume2, Maximize, Minimize, RotateCcw } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useFullscreen } from '@/hooks/useFullscreen'
 
@@ -32,6 +32,7 @@ interface ClockMenuProps {
   fontOptions: FontOption[]
   selectedFont: string
   onFontChange: (value: string) => void
+  onReset: () => void
 }
 
 function TogglePill({
@@ -73,7 +74,8 @@ export default function ClockMenu({
   setSliderValue,
   fontOptions,
   selectedFont,
-  onFontChange
+  onFontChange,
+  onReset
 }: Readonly<ClockMenuProps>) {
   const { isFullscreen, toggle } = useFullscreen()
 
@@ -186,15 +188,18 @@ export default function ClockMenu({
 
             {/* Row 2 */}
             <DropdownMenuItem className={cn('menu-item')}>
-              <Bell className={cn('size-5')} />
+              <Volume2 className={cn('size-5')} />
             </DropdownMenuItem>
             <DropdownMenuItem className={cn('menu-item')}>
               <Timer className={cn('size-5')} />
             </DropdownMenuItem>
 
             {/* Row 3 */}
-            <DropdownMenuItem className={cn('menu-item')}>
-              <Volume2 className={cn('size-5')} />
+            <DropdownMenuItem
+              className={cn('menu-item')}
+              onClick={onReset}
+            >
+              <RotateCcw className={cn('size-5')} />
             </DropdownMenuItem>
             <DropdownMenuItem
               className={cn('menu-item')}

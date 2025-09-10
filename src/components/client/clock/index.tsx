@@ -83,6 +83,25 @@ export default function Clock() {
     localStorage.setItem('clock-showSeconds', showSeconds.toString())
   }, [showSeconds])
 
+  // Reset function to clear all localStorage and reset to defaults
+  const handleReset = () => {
+    // Clear all localStorage items
+    localStorage.removeItem('clock-font')
+    localStorage.removeItem('clock-scale')
+    localStorage.removeItem('clock-is24Hour')
+    localStorage.removeItem('clock-showHours')
+    localStorage.removeItem('clock-showMinutes')
+    localStorage.removeItem('clock-showSeconds')
+
+    // Reset all state to default values
+    setSelectedFont('font-bebas-neue')
+    setSliderValue([100])
+    setIs24Hour(false)
+    setShowHours(true)
+    setShowMinutes(true)
+    setShowSeconds(false)
+  }
+
   const currentFont = FONT_OPTIONS.find(font => font.cssClass === selectedFont) || FONT_OPTIONS[0]
   const scale = (sliderValue[0] ?? 100) / 100
 
@@ -110,6 +129,7 @@ export default function Clock() {
         fontOptions={FONT_OPTIONS}
         selectedFont={selectedFont}
         onFontChange={setSelectedFont}
+        onReset={handleReset}
       />
     </>
   )
