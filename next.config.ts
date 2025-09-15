@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
   pageExtensions: ['mdx', 'ts', 'tsx'],
   reactStrictMode: !isProd,
   images: {
+    qualities: [25, 50, 75, 100],
     minimumCacheTTL: isProd ? 31_536_000 : 86_400, // 1 year for prod, 1 day for dev
     remotePatterns: [
       {
