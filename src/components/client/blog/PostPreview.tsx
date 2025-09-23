@@ -101,6 +101,30 @@ function PostPreview({
 
             {/* Content Section */}
             <div className={cn('p-6')}>
+              {/* Author & Meta */}
+              <div className={cn('mt-[-40px] mb-4 flex items-center justify-between')}>
+                <div className={cn('flex items-end gap-3')}>
+                  <div className={cn('relative')}>
+                    <div className={cn('flex size-9 items-center justify-center rounded-full', 'ring-3 ring-white')}>
+                      <Image
+                        src={author.avatar}
+                        alt={author.name}
+                        width={36}
+                        height={36}
+                        className='rounded-full object-cover'
+                      />
+                    </div>
+                    {author.verified && (
+                      <div className={cn('absolute -right-1 -bottom-1 rounded-full bg-white p-[1px]')}>
+                        <CheckVerifiedIcon className={cn('size-3 text-blue-500')} />
+                      </div>
+                    )}
+                  </div>
+
+                  <span className={cn('text-sm leading-[10px] text-slate-900 dark:text-slate-100')}>{author.name}</span>
+                </div>
+              </div>
+
               {/* Tags */}
               {tags.length > 0 && (
                 <div className={cn('mb-3 flex flex-wrap gap-2')}>
@@ -138,36 +162,6 @@ function PostPreview({
               <p className={cn('mb-4 line-clamp-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400')}>
                 {description}
               </p>
-
-              {/* Author & Meta */}
-              <div className={cn('mb-4 flex items-center justify-between')}>
-                <div className={cn('flex items-center gap-3')}>
-                  <div className={cn('relative')}>
-                    <div
-                      className={cn(
-                        'flex size-8 items-center justify-center rounded-full',
-                        'ring-1 ring-purple-300',
-                        'dark:ring-purple-800'
-                      )}
-                    >
-                      <Image
-                        src={author.avatar}
-                        alt={author.name}
-                        width={32}
-                        height={32}
-                        className='rounded-full object-cover'
-                      />
-                    </div>
-                    {author.verified && (
-                      <div className={cn('absolute -right-1 -bottom-1 rounded-full bg-white p-[1px]')}>
-                        <CheckVerifiedIcon className={cn('size-3 text-blue-500')} />
-                      </div>
-                    )}
-                  </div>
-
-                  <span className={cn('text-sm text-slate-900 dark:text-slate-100')}>{author.name}</span>
-                </div>
-              </div>
 
               {/* Stats & Actions */}
               <div className={cn('flex items-center justify-between')}>
