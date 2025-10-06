@@ -25,6 +25,9 @@
   /* Font families */
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
+
+  --font-nunito: var(--font-nunito);
+  --font-sedgwick-ave: var(--font-sedgwick-ave);
 }
 
 /*
