@@ -8,7 +8,7 @@ type LayoutProps = {
 }
 
 export const metadata: Metadata = GenerateMetadata({
-  title: 'Personal Blog',
+  title: 'Blog',
   description: 'Web development thoughts and stories.',
   ogImage: ogImage.src,
   currentUrl: `${getBaseUrl()}/blog`

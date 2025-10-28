@@ -116,7 +116,12 @@ export const formatLang = (
 export const extractLanguage = (children: ReactNode): string => {
   const element = children as ReactElement
   const props = element.props as { className: string }
-  const rawClass = props.className
+  const rawClass = props?.className
+
+  if (!rawClass) {
+    return ''
+  }
+
   const langMatch = rawClass.split(' ').find((c: string) => c.startsWith('language-'))
   return langMatch?.replace('language-', '') ?? ''
 }

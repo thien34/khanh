@@ -11,7 +11,7 @@ export default async function Blog() {
   return (
     <Page
       frontMatter={{
-        title: 'Personal Blog',
+        title: 'Blog',
         description: 'Web development thoughts and stories.'
       }}
       headerImage={<HeaderImage />}
