@@ -5,7 +5,7 @@ function Kbd({ children }: Readonly<PropsWithChildren>) {
   return (
     <kbd
       className={cn(
-        'rounded-[4px] border border-b-[3px] border-slate-400 bg-slate-300 px-1 py-0.5 font-mono',
+        'rounded-[4px] border border-b-[3px] border-slate-400 bg-slate-300 px-1 py-0.5 font-serif',
         'dark:border-slate-300 dark:bg-transparent'
       )}
     >

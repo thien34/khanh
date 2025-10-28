@@ -3,6 +3,7 @@ import { Github, Facebook, Layers } from 'lucide-react'
 import { FB_LINK, GH_LINK } from '@/constants'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import Kbd from '@/components/mdx/Kbd'
 
 const SocialLinks = () => {
   return (
@@ -49,15 +50,7 @@ const SocialLinks = () => {
         >
           <Layers className='h-5 w-5' />
           <span className={cn('hidden items-center gap-2 text-xs font-bold', 'xl:flex')}>
-            Quick Access{' '}
-            <kbd
-              className={cn(
-                'rounded-[4px] border border-b-[3px] border-slate-400 bg-slate-300 px-1 py-0.5 font-serif',
-                'dark:border-slate-300 dark:bg-transparent'
-              )}
-            >
-              Q
-            </kbd>
+            Quick Access <Kbd>Q</Kbd>
           </span>
         </Button>
       </li>

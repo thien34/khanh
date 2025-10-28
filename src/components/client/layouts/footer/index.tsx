@@ -38,8 +38,7 @@ const Footer = () => {
                   },
                   {
                     title: 'Blog',
-                    href: '/blog',
-                    label: 'new'
+                    href: '/blog'
                   }
                 ]}
               />
