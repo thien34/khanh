@@ -23,7 +23,7 @@ function PageHeader({ title, description, caption = '', headerImage = null }: Re
     <header
       id='page-header'
       className={cn(
-        'background-grid background-grid--fade-out z-[900] mb-10 border-b pt-28 pb-10',
+        'background-grid background-grid--fade-out z-900 mb-10 border-b pt-28 pb-10',
         'md:mb-0 md:border-none md:pt-36 md:pb-16'
       )}
     >
