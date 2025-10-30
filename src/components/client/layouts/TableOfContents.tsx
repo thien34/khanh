@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useEffect, useRef } from 'react'
 import useOnScroll from '@/hooks/useOnScroll'
 import useScrollSpy from '@/hooks/useScrollSpy'
 import type { TTableOfContentsItem } from '@/types'
@@ -11,8 +12,20 @@ interface TableOfContentsLinkProps extends TTableOfContentsItem {
 }
 
 function TableOfContentsLink({ title, depth, slug, active = false }: Readonly<TableOfContentsLinkProps>) {
+  const linkRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    if (active && linkRef.current) {
+      linkRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+      })
+    }
+  }, [active])
+
   return (
     <a
+      ref={linkRef}
       className={cn('toc-link', {
         'toc-link--depth-2': depth === 2,
         'toc-link--active': active
@@ -39,7 +52,7 @@ function TableOfContents({ items = [] }: Readonly<TableOfContensProps>) {
   return (
     <nav
       aria-label='Page table of contents'
-      className={cn('rounded-xl border bg-white', 'dark:bg-[#161e31]')}
+      className={cn('flex max-h-[600px] flex-col rounded-xl border bg-white', 'dark:bg-[#161e31]')}
     >
       <div className={cn('flex items-center justify-between border-b px-5 py-3 text-sm font-bold')}>
         <h2
@@ -65,7 +78,7 @@ function TableOfContents({ items = [] }: Readonly<TableOfContensProps>) {
           </a>
         </motion.div>
       </div>
-      <div className={cn('relative p-3 py-4')}>
+      <div className={cn('relative overflow-y-auto p-3')}>
         <ol className={cn('toc flex flex-col gap-2')}>
           {items.map(({ title, depth, slug }) => {
             const isActive = currentVisibles?.[slug]

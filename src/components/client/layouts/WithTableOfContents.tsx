@@ -9,10 +9,10 @@ interface PageWithMDXProps {
 
 function WithTableOfContents({ tableOfContents, children = null }: PropsWithChildren<PageWithMDXProps>) {
   return (
-    <div className={cn('content-wrapper flex-shrink-0 overflow-hidden', 'lg:overflow-visible')}>
+    <div className={cn('content-wrapper shrink-0 overflow-hidden', 'lg:overflow-visible')}>
       <div className={cn('flex flex-row-reverse gap-8', 'xl:gap-24')}>
         <div className={cn('-mt-48 hidden', 'lg:block')}>
-          <div className={cn('sticky top-24 z-[901] w-64', 'xl:w-[272px]', 'fm:relative fm:top-0')}>
+          <div className={cn('sticky top-24 z-901 w-64', 'xl:w-[272px]', 'fm:relative fm:top-0')}>
             <TableOfContents items={tableOfContents} />
           </div>
         </div>
